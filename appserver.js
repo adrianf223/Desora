@@ -4,7 +4,6 @@ express = require('express'),
 vhost = require('vhost');
 path = require('path');
     
-    
 function createVirtualHost(domainName, dirPath) {
     return vhost(domainName, express.static(dirPath));
 }
@@ -39,15 +38,16 @@ var mysqlJson = new MysqlJson({
 
 appServer.use(express.static('html'));
 appServer.use(express.static('js'));
-appServer.use(express.static('css'));
+appServer.use(express.static('css')); 
 appServer.use(express.static('img'));
 // appServer.use(express.static('clase'));
-appServer.use(express.static('node_modules/jquery/dist/'));
-appServer.use(express.static('node_modules/traceur/bin/'));
-appServer.use(express.static('node_modules/es6-module-loader/dist/'));
-appServer.use(express.static('node_modules/material-design-lite/dist/'));
-appServer.use(express.static('node_modules/jquery/dist/'));
-appServer.use(express.static('node_modules/systemjs/dist/'));
+// appServer.use(express.static('node_modules/jquery/dist/'));
+// appServer.use(express.static('node_modules/traceur/bin/'));
+// appServer.use(express.static('node_modules/es6-module-loader/dist/'));
+// appServer.use(express.static('node_modules/material-design-lite/dist/'));
+// appServer.use(express.static('node_modules/jquery/dist/'));
+// appServer.use(express.static('node_modules/moment/src/'));
+appServer.use(express.static(path.join(__dirname,'node_modules/')));
 
 
 
@@ -65,3 +65,5 @@ appServer.get('/multimedia-data', function(req, res) {
         res.send('<H1>Aici punem multimedia</H1><BR/>' + JSON.stringify(response));
       });
 });
+
+

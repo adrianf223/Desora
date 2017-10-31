@@ -1,5 +1,6 @@
 import {Pagina} from './ui/pagina.js';
 import {Imagine} from './ui/imagine.js';
+// import {Ceas} from './ui/ceas.js';
 import {Buton} from './ui/buton.js';
 import {app} from './app.js';
 
@@ -14,7 +15,17 @@ export class Acasa extends Pagina {
 
         let imagine = new Imagine('./clock.png');
         imagine.adauga(this.tag);
-       
+
+        // let ceas = new Ceas();
+        // ceas.adauga(this.tag);
+
+		// ceas.creazaOrele();
+        // ceas.creazaZilele();
+        // ceas.updateCeas();
+		// ceas.markeazaZiuaActiva();
+		// ceas.seteazaFormatOra();
+        // ceas.start();
+               
         let stilButon = 'width: 20px; height: 50px; font-size: 16px; margin: 0px;';
         
         let alarme = new Buton('Alarme');

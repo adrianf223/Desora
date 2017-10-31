@@ -19,6 +19,7 @@
         "express": "*",
         "jquery": "*",
         "material-design-lite": "*",
+        "moment-es6": "^1.0.0",
         "mysql": "^2.15.0",
         "mysql-json": "^0.1.2",
         "path": "^0.12.7",

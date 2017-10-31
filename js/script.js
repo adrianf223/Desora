@@ -1,2 +1,2 @@
-System.paths['jquery'] = './jquery.js';
+System.paths['jquery'] = 'jquery/dist/jquery.js';
 System.import('./app.js');
