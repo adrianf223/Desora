@@ -34,12 +34,14 @@ var mysqlJson = new MysqlJson({
     database : 'Desoradb'
 });
 
-appServer.use(express.static('dist'));
+// appServer.use(express.static('dist'));
+// appServer.use(express.static(path.join(__dirname,'dist')));
+
 appServer.use(express.static('html'));
 appServer.use(express.static('js'));
 appServer.use(express.static('css'));
 appServer.use(express.static('img'));
-appServer.use(express.static('clase'));
+// appServer.use(express.static('clase'));
 appServer.use(express.static('node_modules/jquery/dist/'));
 appServer.use(express.static('node_modules/traceur/bin/'));
 appServer.use(express.static('node_modules/es6-module-loader/dist/'));
@@ -47,7 +49,6 @@ appServer.use(express.static('node_modules/material-design-lite/dist/'));
 appServer.use(express.static('node_modules/jquery/dist/'));
 appServer.use(express.static('node_modules/systemjs/dist/'));
 
-// appServer.use(express.static(path.join(__dirname,'dist')));
 
 
 appServer.get('/alarme-data', function(req, res) {   
