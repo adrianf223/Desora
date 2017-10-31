@@ -1,0 +1,39 @@
+{
+    "name": "desora",
+    "version": "1.0.0",
+    "description": "Alarm clock app",
+    "main": "appserver.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon appserver.js",
+        "build": "webpack"
+    },
+    "keywords": [
+        "alarm",
+        "clock"
+    ],
+    "author": "Adrian",
+    "license": "MIT",
+    "dependencies": {
+        "es6-module-loader": "*",
+        "express": "*",
+        "jquery": "*",
+        "material-design-lite": "*",
+        "mysql": "^2.15.0",
+        "mysql-json": "^0.1.2",
+        "path": "^0.12.7",
+        "systemjs": "*",
+        "traceur": "*",
+        "vhost": "^3.0.2"
+    },
+    "devDependencies": {
+        "webpack": "^3.8.1",
+        "express-loader": "^0.0.2",
+        "traceur-loader": "^0.6.3",
+        "css-loader": "^0.14.5",
+        "file-loader": "^0.8.4",
+        "node-libs-browser": "^0.5.2",
+        "style-loader": "^0.12.3",
+        "url-loader": "^0.5.6"
+    }
+}

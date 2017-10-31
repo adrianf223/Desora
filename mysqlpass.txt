@@ -1,0 +1,5 @@
+2017-10-15T19:20:39.239008Z 1 
+[Note] A temporary password is 
+generated for root@localhost: 09+aopSGGpPy
+
+New password: dev!pass
