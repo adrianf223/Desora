@@ -83,8 +83,6 @@ aside {
     width: 16px;
     height: 16px;
     bottom: 20px;
-    /* background: url('../img/alarm_light.jpg'); */
-    /* background: url('../img/alarm_dark.jpg');     */
     position: absolute;
     opacity: 0.2;
     left: 30px;
@@ -409,8 +407,8 @@ a.buton {
     background-color: orangered;
     border: 1px solid orangered;
     border-radius: 2px;
-    box-shadow: 0 2px 2px #ccc;
-    color: #fff;
+    box-shadow: 0 2px 2px gray;
+    color: white;
     text-decoration: none !important;
     padding: 15px 20px;
     display: inline-block;
@@ -419,9 +417,6 @@ a.buton {
     z-index: 1;
 }
 
-/* a.button:hover {
-    opacity: 0.9;
-} */
 
 .buton-setare {
     display: hidden;   
@@ -461,7 +456,7 @@ a:hover + .buton-setare, .buton-setare:hover{
     height: 375px;
     background-color: white;
     border-radius: 2px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 8px gray;
     position: fixed;
     top: 200px;
     left: 50%;
@@ -481,7 +476,7 @@ a:hover + .buton-setare, .buton-setare:hover{
 #msg-alarma h2 {
     text-transform: uppercase;
     font-size: 18px;
-    color: #5e6268;
+    color: gray;
     padding: 50px 0;
 }
 
@@ -515,7 +510,7 @@ a:hover + .buton-setare, .buton-setare:hover{
 }
 
 #msg-alarma .pozitie-butoane .buton {
-    box-shadow: 0 2px 2px #eee;
+    box-shadow: 0 2px 2px gray;
     padding: 13px 22px;
     margin: 3px;
 }
@@ -547,5 +542,5 @@ a:hover + .buton-setare, .buton-setare:hover{
 
 #timpul-a-expirat .buton {
     padding: 12px 20px;
-    box-shadow: 0 2px 2px #eee;
+    box-shadow: 0 2px 2px gray;
 }
