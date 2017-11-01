@@ -515,19 +515,30 @@ a:hover + .buton-setare, .buton-setare:hover{
     margin: 3px;
 }
 
-.buton.blue {
-    background-color: blue;
-    border-color: blue;
+.buton.setare {
+    background-color: cornflowerblue;
+    border-color: cornflowerblue;
+}
+
+.buton.sterge {
+    background-color: orangered;
+    border-color: orangered;
+}
+
+.buton.inchide {
+    background-color: cornflowerblue;
+    border-color: cornflowerblue;
 }
 
 #msg-alarma .inchide {
     width: 36px;
     height: 36px;
-    background: url('../img/close.png');
+    /* background: url('../img/close.png'); */
     position: absolute;
-    top: -18px;
-    right: -18px;
+    top: -1px;
+    right: -10px;
     cursor: pointer;
+    color: black;
 }
 
 
