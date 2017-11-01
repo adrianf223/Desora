@@ -38,7 +38,6 @@ appServer.listen(port, function() {
 appServer.use(express.static(path.join(application_root,'desora.ro')));
 appServer.use(express.static(path.join(application_root,'node-modules/jquery')));
 
-
 appServer.get('/alarme-data', function(req, res) {   
     mysqlJson.query("SELECT * FROM Alarme", function(err, response) {
         if (err) throw err;
