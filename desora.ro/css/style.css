@@ -427,7 +427,7 @@ aside {
     margin-top: 10px;
 }
 
-a.button {
+a.buton {
     background-color: orangered;
 
     border: 1px solid orangered;
@@ -471,7 +471,7 @@ a:hover + .alarm-button, .alarm-button:hover{
 	Alarm Dialog
 --------------------------*/
 
-.overlay {
+.panou-alarma {
     display: none;
     position: fixed;
     width: 100%;
@@ -540,13 +540,13 @@ a:hover + .alarm-button, .alarm-button:hover{
     padding-bottom: 0;
 }
 
-#msg-alarma .button-holder .button {
+#msg-alarma .button-holder .buton {
     box-shadow: 0 2px 2px #eee;
     padding: 13px 22px;
     margin: 3px;
 }
 
-.button.blue {
+.buton.blue {
     background-color: blue;
 
 
@@ -573,7 +573,7 @@ a:hover + .alarm-button, .alarm-button:hover{
     font-size: 30px;
 }
 
-#time-is-up .button {
+#time-is-up .buton {
     padding: 12px 20px;
     box-shadow: 0 2px 2px #eee;
 }

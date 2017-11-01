@@ -85,17 +85,17 @@ $(function(){
 		// Stupid, I know. Lets shift all the days one position down, 
 		// and make Sunday last
 
-		var dow = acum[6];
-		dow--;
+		var pozitiaDuminica = acum[6];
+		pozitiaDuminica--;
 		
 		// Sunday!
-		if(dow < 0){
+		if(pozitiaDuminica < 0){
 			// Make it last
-			dow = 6;
+			pozitiaDuminica = 6;
 		}
 
 		// Mark the active day of the week
-		zile.removeClass('active').eq(dow).addClass('active');
+		zile.removeClass('active').eq(pozitiaDuminica).addClass('active');
 
 		// Set the am/pm text:
 		zinoapte.text(acum[7]+acum[8]);
@@ -156,12 +156,12 @@ $(function(){
 		msgSetareAlarma.trigger('hide')
 	});
 
-	msgSetareAlarma.click(function(e){
+	msgSetareAlarma.click(function(element){
 
 		// When the overlay is clicked, 
 		// hide the dialog.
 
-		if($(e.target).is('.overlay')){
+		if($(element.target).is('panou-alarma')){
 			// This check is need to prevent
 			// bubbled up events from hiding the dialog
 			msgSetareAlarma.trigger('hide');
@@ -171,28 +171,27 @@ $(function(){
 
 	setareAlarma.click(function(){
 
-		var valid = true, after = 0,
+		var eNumarValid = true, after = 0,
 			to_seconds = [3600, 60, 1];
 
-		msgSetareAlarma.find('input').each(function(i){
+		msgSetareAlarma.find('input').each(function(i,nrIntrodus){
 
 			// Using the validity property in HTML5-enabled browsers:
 
-			if(this.validity && !this.validity.valid){
-
+			if(nrIntrodus.validity && !nrIntrodus.validity.valid){
 				// The input field contains something other than a digit,
 				// or a number less than the min value
 
-				valid = false;
-				this.focus();
+				eNumarValid = false;
+				nrIntrodus.focus();
 
 				return false;
 			}
 
-			after += to_seconds[i] * parseInt(parseInt(this.value));
+			after += to_seconds[i] * parseInt(parseInt(nrIntrodus.value));
 		});
 
-		if(!valid){
+		if(!eNumarValid){
 			alert('Introduce-ti va rog un numer valid!');
 			return;
 		}
@@ -208,7 +207,6 @@ $(function(){
 
 	stragereAlarma.click(function(){
 		nrAlarme = -1;
-
 		msgSetareAlarma.trigger('hide');
 	});
 
@@ -221,7 +219,7 @@ $(function(){
 
 		// Calculate how much time is left for the alarm to go off.
 
-		var hours = 0, minutes = 0, seconds = 0, tmp = 0;
+		var ore = 0, minute = 0, secunde = 0, tmp = 0;
 
 		if(nrAlarme > 0){
 			
@@ -229,17 +227,17 @@ $(function(){
 
 			tmp = nrAlarme;
 
-			hours = Math.floor(tmp/3600);
+			ore = Math.floor(tmp/3600);
 			tmp = tmp%3600;
 
-			minutes = Math.floor(tmp/60);
+			minute = Math.floor(tmp/60);
 			tmp = tmp%60;
 
-			seconds = tmp;
+			secunde = tmp;
 		}
 
 		// Update the input fields
-		msgSetareAlarma.find('input').eq(0).val(hours).end().eq(1).val(minutes).end().eq(2).val(seconds);
+		msgSetareAlarma.find('input').eq(0).val(ore).end().eq(1).val(minute).end().eq(2).val(secunde);
 
 		msgSetareAlarma.fadeIn();
 
