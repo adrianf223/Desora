@@ -12,9 +12,9 @@
     <div id="ceas" class="dark">
         <!-- <div class="display"> -->
             <div class="weekdays"></div>
-            <div class="ampm"></div>
+            <div class="zinoapte"></div>
             <div class="alarma"></div>    
-            <div class="digits"></div>
+            <div class="cifre"></div>
         <!-- </div> -->
         <div class="button-holder">
         <a class="alarm-button">Setare Alarma</a>
@@ -46,7 +46,7 @@
 				</label>
 
             <div class="button-holder">
-                <a id="alarma-setatare" class="button blue">Setare</a>
+                <a id="alarma-setare" class="button blue">Setare</a>
                 <a id="alarma-stergere" class="button red">Stergere</a>
             </div>
 
@@ -60,7 +60,7 @@
 
         <div id="time-is-up">
 
-            <h2>Alarma!</h2>
+            <h2>Timpul a expirat!</h2>
 
             <div class="button-holder">
                 <a class="button blue">Inchide</a>
@@ -72,18 +72,14 @@
 
     <audio id="alarm-ring" preload>
 			<source src="audio/DigitalAlarm.ogg" type="audio/mpeg" />
-<!--
-			<source src="audio/ticktac.mp3" type="audio/mpeg" />
-			<source src="audio/ticktac.ogg" type="audio/ogg" />
--->
 		</audio>
 
     <footer>
         <span class="close"></span>
     </footer>
 
-    <script src="dist/jquery.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="moment.min.js"></script>
     <script src="js/script.js"></script>
 
 </body>

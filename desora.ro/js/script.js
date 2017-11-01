@@ -4,10 +4,10 @@ $(function(){
 
 	var ceas = $('#ceas'),
 		alarma = ceas.find('.alarma'),
-		zinoapte = ceas.find('.ampm'),
+		zinoapte = ceas.find('.zinoapte'),
 		msgSetareAlarma = $('#msg-alarma').parent(),
 		setareAlarma = $('#alarma-setare'),
-		stragereAlarma = $('#alarma-setergere'),
+		stragereAlarma = $('#alarma-stergere'),
 		timpulAExpirat = $('#time-is-up').parent();
 
 	// This will hold the number of seconds left
@@ -28,7 +28,7 @@ $(function(){
 	// Generate the digits with the needed markup,
 	// and add them to the clock
 
-	var locCifre = ceas.find('.digits');
+	var locCifre = ceas.find('.cifre');
 
 	$.each(pozitii, function(){
 
@@ -72,20 +72,20 @@ $(function(){
 		// mm - minutes, ss-seconds (all with leading zeroes),
 		// d is for day of week and A is for AM/PM
 
-		var now = moment().format("hhmmssdA");
+		var acum = moment().format("hhmmssdA");
 
-		cifre.h1.attr('class', numeleCifrelor[now[0]]);
-		cifre.h2.attr('class', numeleCifrelor[now[1]]);
-		cifre.m1.attr('class', numeleCifrelor[now[2]]);
-		cifre.m2.attr('class', numeleCifrelor[now[3]]);
-		cifre.s1.attr('class', numeleCifrelor[now[4]]);
-		cifre.s2.attr('class', numeleCifrelor[now[5]]);
+		cifre.h1.attr('class', numeleCifrelor[acum[0]]);
+		cifre.h2.attr('class', numeleCifrelor[acum[1]]);
+		cifre.m1.attr('class', numeleCifrelor[acum[2]]);
+		cifre.m2.attr('class', numeleCifrelor[acum[3]]);
+		cifre.s1.attr('class', numeleCifrelor[acum[4]]);
+		cifre.s2.attr('class', numeleCifrelor[acum[5]]);
 
 		// The library returns Sunday as the first day of the week.
 		// Stupid, I know. Lets shift all the days one position down, 
 		// and make Sunday last
 
-		var dow = now[6];
+		var dow = acum[6];
 		dow--;
 		
 		// Sunday!
@@ -98,7 +98,7 @@ $(function(){
 		zile.removeClass('active').eq(dow).addClass('active');
 
 		// Set the am/pm text:
-		zinoapte.text(now[7]+now[8]);
+		zinoapte.text(acum[7]+acum[8]);
 
 
 		// Is there an alarm set?
@@ -193,12 +193,12 @@ $(function(){
 		});
 
 		if(!valid){
-			alert('Please enter a valid number!');
+			alert('Introduce-ti va rog un numer valid!');
 			return;
 		}
 
 		if(after < 1){
-			alert('Please choose a time in the future!');
+			alert('Alegeti va rog un moment in viitor!');
 			return;	
 		}
 

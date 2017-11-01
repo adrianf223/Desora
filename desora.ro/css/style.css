@@ -67,7 +67,7 @@ aside {
 }
 */
 
-#ceas.dark .digits div span {
+#ceas.dark .cifre div span {
     background-color: azure;
     border-color: azure;
 }
@@ -76,12 +76,9 @@ aside {
     background: url('../img/alarm_dark.jpg');
 }
 
-#ceas.dark .display {
-    background-color: black;
-}
 
-#ceas.dark .digits div.dots:before,
-#ceas.dark .digits div.dots:after {
+#ceas.dark .cifre div.dots:before,
+#ceas.dark .cifre div.dots:after {
     background-color: #cacaca;
 }
 
@@ -90,7 +87,7 @@ aside {
 	The Digits
 --------------------------*/
 
-#ceas .digits div {
+#ceas .cifre div {
     text-align: left;
     position: relative;
     width: 28px;
@@ -99,13 +96,13 @@ aside {
     margin: 0 4px;
 }
 
-#ceas .digits div span {
+#ceas .cifre div span {
     opacity: 0;
     position: absolute;
 }
 
-#ceas .digits div span:before,
-#ceas .digits div span:after {
+#ceas .cifre div span:before,
+#ceas .cifre div span:after {
     content: '';
     position: absolute;
     width: 0;
@@ -113,134 +110,134 @@ aside {
     border: 5px solid transparent;
 }
 
-#ceas .digits .d1 {
+#ceas .cifre .d1 {
     height: 5px;
     width: 16px;
     top: 0;
     left: 6px;
 }
 
-#ceas .digits .d1:before {
+#ceas .cifre .d1:before {
     border-width: 0 5px 5px 0;
     border-right-color: inherit;
     left: -5px;
 }
 
-#ceas .digits .d1:after {
+#ceas .cifre .d1:after {
     border-width: 0 0 5px 5px;
     border-left-color: inherit;
     right: -5px;
 }
 
-#ceas .digits .d2 {
+#ceas .cifre .d2 {
     height: 5px;
     width: 16px;
     top: 24px;
     left: 6px;
 }
 
-#ceas .digits .d2:before {
+#ceas .cifre .d2:before {
     border-width: 3px 4px 2px;
     border-right-color: inherit;
     left: -8px;
 }
 
-#ceas .digits .d2:after {
+#ceas .cifre .d2:after {
     border-width: 3px 4px 2px;
     border-left-color: inherit;
     right: -8px;
 }
 
-#ceas .digits .d3 {
+#ceas .cifre .d3 {
     height: 5px;
     width: 16px;
     top: 48px;
     left: 6px;
 }
 
-#ceas .digits .d3:before {
+#ceas .cifre .d3:before {
     border-width: 5px 5px 0 0;
     border-right-color: inherit;
     left: -5px;
 }
 
-#ceas .digits .d3:after {
+#ceas .cifre .d3:after {
     border-width: 5px 0 0 5px;
     border-left-color: inherit;
     right: -5px;
 }
 
-#ceas .digits .d4 {
+#ceas .cifre .d4 {
     width: 5px;
     height: 14px;
     top: 7px;
     left: 0;
 }
 
-#ceas .digits .d4:before {
+#ceas .cifre .d4:before {
     border-width: 0 5px 5px 0;
     border-bottom-color: inherit;
     top: -5px;
 }
 
-#ceas .digits .d4:after {
+#ceas .cifre .d4:after {
     border-width: 0 0 5px 5px;
     border-left-color: inherit;
     bottom: -5px;
 }
 
-#ceas .digits .d5 {
+#ceas .cifre .d5 {
     width: 5px;
     height: 14px;
     top: 7px;
     right: 0;
 }
 
-#ceas .digits .d5:before {
+#ceas .cifre .d5:before {
     border-width: 0 0 5px 5px;
     border-bottom-color: inherit;
     top: -5px;
 }
 
-#ceas .digits .d5:after {
+#ceas .cifre .d5:after {
     border-width: 5px 0 0 5px;
     border-top-color: inherit;
     bottom: -5px;
 }
 
-#ceas .digits .d6 {
+#ceas .cifre .d6 {
     width: 5px;
     height: 14px;
     top: 32px;
     left: 0;
 }
 
-#ceas .digits .d6:before {
+#ceas .cifre .d6:before {
     border-width: 0 5px 5px 0;
     border-bottom-color: inherit;
     top: -5px;
 }
 
-#ceas .digits .d6:after {
+#ceas .cifre .d6:after {
     border-width: 0 0 5px 5px;
     border-left-color: inherit;
     bottom: -5px;
 }
 
-#ceas .digits .d7 {
+#ceas .cifre .d7 {
     width: 5px;
     height: 14px;
     top: 32px;
     right: 0;
 }
 
-#ceas .digits .d7:before {
+#ceas .cifre .d7:before {
     border-width: 0 0 5px 5px;
     border-bottom-color: inherit;
     top: -5px;
 }
 
-#ceas .digits .d7:after {
+#ceas .cifre .d7:after {
     border-width: 5px 0 0 5px;
     border-top-color: inherit;
     bottom: -5px;
@@ -249,113 +246,113 @@ aside {
 
 /* 1 */
 
-#ceas .digits div.one .d5,
-#ceas .digits div.one .d7 {
+#ceas .cifre div.one .d5,
+#ceas .cifre div.one .d7 {
     opacity: 1;
 }
 
 /* 2 */
 
-#ceas .digits div.two .d1,
-#ceas .digits div.two .d5,
-#ceas .digits div.two .d2,
-#ceas .digits div.two .d6,
-#ceas .digits div.two .d3 {
+#ceas .cifre div.two .d1,
+#ceas .cifre div.two .d5,
+#ceas .cifre div.two .d2,
+#ceas .cifre div.two .d6,
+#ceas .cifre div.two .d3 {
     opacity: 1;
 }
 
 /* 3 */
 
-#ceas .digits div.three .d1,
-#ceas .digits div.three .d5,
-#ceas .digits div.three .d2,
-#ceas .digits div.three .d7,
-#ceas .digits div.three .d3 {
+#ceas .cifre div.three .d1,
+#ceas .cifre div.three .d5,
+#ceas .cifre div.three .d2,
+#ceas .cifre div.three .d7,
+#ceas .cifre div.three .d3 {
     opacity: 1;
 }
 
 /* 4 */
 
-#ceas .digits div.four .d5,
-#ceas .digits div.four .d2,
-#ceas .digits div.four .d4,
-#ceas .digits div.four .d7 {
+#ceas .cifre div.four .d5,
+#ceas .cifre div.four .d2,
+#ceas .cifre div.four .d4,
+#ceas .cifre div.four .d7 {
     opacity: 1;
 }
 
 /* 5 */
 
-#ceas .digits div.five .d1,
-#ceas .digits div.five .d2,
-#ceas .digits div.five .d4,
-#ceas .digits div.five .d3,
-#ceas .digits div.five .d7 {
+#ceas .cifre div.five .d1,
+#ceas .cifre div.five .d2,
+#ceas .cifre div.five .d4,
+#ceas .cifre div.five .d3,
+#ceas .cifre div.five .d7 {
     opacity: 1;
 }
 
 /* 6 */
 
-#ceas .digits div.six .d1,
-#ceas .digits div.six .d2,
-#ceas .digits div.six .d4,
-#ceas .digits div.six .d3,
-#ceas .digits div.six .d6,
-#ceas .digits div.six .d7 {
+#ceas .cifre div.six .d1,
+#ceas .cifre div.six .d2,
+#ceas .cifre div.six .d4,
+#ceas .cifre div.six .d3,
+#ceas .cifre div.six .d6,
+#ceas .cifre div.six .d7 {
     opacity: 1;
 }
 
 
 /* 7 */
 
-#ceas .digits div.seven .d1,
-#ceas .digits div.seven .d5,
-#ceas .digits div.seven .d7 {
+#ceas .cifre div.seven .d1,
+#ceas .cifre div.seven .d5,
+#ceas .cifre div.seven .d7 {
     opacity: 1;
 }
 
 /* 8 */
 
-#ceas .digits div.eight .d1,
-#ceas .digits div.eight .d2,
-#ceas .digits div.eight .d3,
-#ceas .digits div.eight .d4,
-#ceas .digits div.eight .d5,
-#ceas .digits div.eight .d6,
-#ceas .digits div.eight .d7 {
+#ceas .cifre div.eight .d1,
+#ceas .cifre div.eight .d2,
+#ceas .cifre div.eight .d3,
+#ceas .cifre div.eight .d4,
+#ceas .cifre div.eight .d5,
+#ceas .cifre div.eight .d6,
+#ceas .cifre div.eight .d7 {
     opacity: 1;
 }
 
 /* 9 */
 
-#ceas .digits div.nine .d1,
-#ceas .digits div.nine .d2,
-#ceas .digits div.nine .d3,
-#ceas .digits div.nine .d4,
-#ceas .digits div.nine .d5,
-#ceas .digits div.nine .d7 {
+#ceas .cifre div.nine .d1,
+#ceas .cifre div.nine .d2,
+#ceas .cifre div.nine .d3,
+#ceas .cifre div.nine .d4,
+#ceas .cifre div.nine .d5,
+#ceas .cifre div.nine .d7 {
     opacity: 1;
 }
 
 /* 0 */
 
-#ceas .digits div.zero .d1,
-#ceas .digits div.zero .d3,
-#ceas .digits div.zero .d4,
-#ceas .digits div.zero .d5,
-#ceas .digits div.zero .d6,
-#ceas .digits div.zero .d7 {
+#ceas .cifre div.zero .d1,
+#ceas .cifre div.zero .d3,
+#ceas .cifre div.zero .d4,
+#ceas .cifre div.zero .d5,
+#ceas .cifre div.zero .d6,
+#ceas .cifre div.zero .d7 {
     opacity: 1;
 }
 
 
 /* The dots */
 
-#ceas .digits div.dots {
+#ceas .cifre div.dots {
     width: 5px;
 }
 
-#ceas .digits div.dots:before,
-#ceas .digits div.dots:after {
+#ceas .cifre div.dots:before,
+#ceas .cifre div.dots:after {
     width: 5px;
     height: 5px;
     content: '';
@@ -364,7 +361,7 @@ aside {
     top: 14px;
 }
 
-#ceas .digits div.dots:after {
+#ceas .cifre div.dots:after {
     top: 34px;
 }
 
@@ -412,7 +409,7 @@ aside {
 		AM/PM
 --------------------------*/
 
-#ceas .ampm {
+#ceas .zinoapte {
     position: absolute;
     bottom: 20px;
     right: 20px;

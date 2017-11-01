@@ -34,9 +34,9 @@ appServer.listen(port, function() {
     console.log('Web serverul porneste pe port %d in mod %s ', port, appServer.settings.env);
 });
 
-
+appServer.use(express.static('node_modules/jquery/dist/'));
+appServer.use(express.static('node_modules/moment/min/'));
 appServer.use(express.static(path.join(application_root,'desora.ro')));
-appServer.use(express.static(path.join(application_root,'node-modules/jquery')));
 
 appServer.get('/alarme-data', function(req, res) {   
     mysqlJson.query("SELECT * FROM Alarme", function(err, response) {
