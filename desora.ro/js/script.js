@@ -8,14 +8,14 @@ $(function(){
 	var	msgSetareAlarma = $('#msg-alarma').parent();
 	var	setareAlarma = $('#alarma-setare');
 	var	stragereAlarma = $('#alarma-stergere');
-	var	timpulAExpirat = $('#time-is-up').parent();
+	var	timpulAExpirat = $('#timpul-a-expirat').parent();
 
 	// This will hold the number of seconds left
 	// until the alarm should go off
 	var secundeDeScurs = -1;
 
 	// Map digits to their names (this will be an array)
-	var numeleCifrelor = 'zero one two three four five six seven eight nine'.split(' ');
+	var numeleCifrelor = 'zero unu doi trei patru cinci sase sapte opt noua'.split(' ');
 
 	// This object will hold the digit elements
 	var cifre = {};
@@ -29,12 +29,12 @@ $(function(){
 
 	$.each(pozitii, function(index, pozitie){
 		if(pozitie == ':'){
-			locCifre.append('<div class="dots">');
+			locCifre.append('<div class="douapuncte">');
 		}
 		else{
 			var locIndicator = $('<div>');
 			for(var i=1; i<8; i++){
-				locIndicator.append('<span class="d' + i + '">');	
+				locIndicator.append('<span class="segment' + i + '">');	
 		}
 			// Set the digits as key:value pairs in the digits object
 			cifre[pozitie] = locIndicator;
@@ -47,13 +47,13 @@ $(function(){
 
 	// Add the weekday names
 	var numeZile = 'Luni Marti Miercuri Joi Vineri Sambata Duminica'.split(' '),
-		locZile = ceas.find('.weekdays');
+		locZile = ceas.find('.zile');
 
 	$.each(numeZile, function(index, zile){
 		locZile.append('<span>' + zile + '</span>');
 	});
 
-	var zile = ceas.find('.weekdays span');
+	var zile = ceas.find('.zile span');
 
 
 	// Run a timer every second and update the clock
@@ -110,7 +110,7 @@ $(function(){
 			// Play the alarm sound. This will fail
 			// in browsers which don't support HTML5 audio
 			try{
-				$('#alarm-ring')[0].play();
+				$('#sunatoare')[0].play();
 			}
 			catch(e){}
 			
@@ -131,14 +131,14 @@ $(function(){
 
 	// Handle setting and clearing alamrs
 
-	$('.alarm-button').click(function(){
+	$('.buton-setare').click(function(){
 		
 		// Show the dialog
 		msgSetareAlarma.trigger('show');
 
 	});
 
-	msgSetareAlarma.find('.close').click(function(){
+	msgSetareAlarma.find('.inchide').click(function(){
 		msgSetareAlarma.trigger('hide')
 	});
 

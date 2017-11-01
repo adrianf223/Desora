@@ -42,6 +42,8 @@ aside {
     padding: 40px 20px 20px;
     height: 54px;
     zoom: 1;    
+    background-color: black;
+    color: gray;
 }
 
 @media screen and (max-width: 420){
@@ -50,36 +52,82 @@ aside {
     }
 }
 
+/* The dots */
+#ceas .cifre div span {
+    background-color: gray;
+    border-color: gray;
+}
+
+#ceas .cifre div.douapuncte {
+    width: 5px;
+}
+
+#ceas .cifre div.douapuncte:before,
+#ceas .cifre div.douapuncte:after {
+    width: 5px;
+    height: 5px;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    background-color:gray;
+}
+
+#ceas .cifre div.douapuncte:after {
+    top: 34px;
+}
+
+
+/*  Alarma */
+#ceas .alarma {
+    width: 16px;
+    height: 16px;
+    bottom: 20px;
+    /* background: url('../img/alarm_light.jpg'); */
+    /* background: url('../img/alarm_dark.jpg');     */
+    position: absolute;
+    opacity: 0.2;
+    left: 30px;
+}
+
+#ceas .alarma.active {
+    opacity: 1;
+}
 
 
 /*-------------------------
-	Dark color theme
+	Weekdays
 --------------------------*/
 
-#ceas.dark {
-    background-color: black;
-    color: azure;
-}
-
-/*
-#clock.dark:after{
-	box-shadow:0 4px 10px rgba(0,0,0,0.3);
-}
-*/
-
-#ceas.dark .cifre div span {
-    background-color: azure;
-    border-color: azure;
-}
-
-#ceas.dark .alarma {
-    background: url('../img/alarm_dark.jpg');
+#ceas .zile {
+    font-size: 12px;
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    left: 0;
+    text-align: center;
 }
 
 
-#ceas.dark .cifre div.dots:before,
-#ceas.dark .cifre div.dots:after {
-    background-color: #cacaca;
+#ceas .zile span {
+    opacity: 0.2;
+    padding: 0 10px;
+}
+
+#ceas .zile span.active {
+    opacity: 1;
+}
+
+
+/*-------------------------
+		AM/PM
+--------------------------*/
+
+#ceas .zinoapte {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 12px;
 }
 
 
@@ -110,134 +158,134 @@ aside {
     border: 5px solid transparent;
 }
 
-#ceas .cifre .d1 {
+#ceas .cifre .segment1 {
     height: 5px;
     width: 16px;
     top: 0;
     left: 6px;
 }
 
-#ceas .cifre .d1:before {
+#ceas .cifre .segment1:before {
     border-width: 0 5px 5px 0;
     border-right-color: inherit;
     left: -5px;
 }
 
-#ceas .cifre .d1:after {
+#ceas .cifre .segment1:after {
     border-width: 0 0 5px 5px;
     border-left-color: inherit;
     right: -5px;
 }
 
-#ceas .cifre .d2 {
+#ceas .cifre .segment2 {
     height: 5px;
     width: 16px;
     top: 24px;
     left: 6px;
 }
 
-#ceas .cifre .d2:before {
+#ceas .cifre .segment2:before {
     border-width: 3px 4px 2px;
     border-right-color: inherit;
     left: -8px;
 }
 
-#ceas .cifre .d2:after {
+#ceas .cifre .segment2:after {
     border-width: 3px 4px 2px;
     border-left-color: inherit;
     right: -8px;
 }
 
-#ceas .cifre .d3 {
+#ceas .cifre .segment3 {
     height: 5px;
     width: 16px;
     top: 48px;
     left: 6px;
 }
 
-#ceas .cifre .d3:before {
+#ceas .cifre .segment3:before {
     border-width: 5px 5px 0 0;
     border-right-color: inherit;
     left: -5px;
 }
 
-#ceas .cifre .d3:after {
+#ceas .cifre .segment3:after {
     border-width: 5px 0 0 5px;
     border-left-color: inherit;
     right: -5px;
 }
 
-#ceas .cifre .d4 {
+#ceas .cifre .segment4 {
     width: 5px;
     height: 14px;
     top: 7px;
     left: 0;
 }
 
-#ceas .cifre .d4:before {
+#ceas .cifre .segment4:before {
     border-width: 0 5px 5px 0;
     border-bottom-color: inherit;
     top: -5px;
 }
 
-#ceas .cifre .d4:after {
+#ceas .cifre .segment4:after {
     border-width: 0 0 5px 5px;
     border-left-color: inherit;
     bottom: -5px;
 }
 
-#ceas .cifre .d5 {
+#ceas .cifre .segment5 {
     width: 5px;
     height: 14px;
     top: 7px;
     right: 0;
 }
 
-#ceas .cifre .d5:before {
+#ceas .cifre .segment5:before {
     border-width: 0 0 5px 5px;
     border-bottom-color: inherit;
     top: -5px;
 }
 
-#ceas .cifre .d5:after {
+#ceas .cifre .segment5:after {
     border-width: 5px 0 0 5px;
     border-top-color: inherit;
     bottom: -5px;
 }
 
-#ceas .cifre .d6 {
+#ceas .cifre .segment6 {
     width: 5px;
     height: 14px;
     top: 32px;
     left: 0;
 }
 
-#ceas .cifre .d6:before {
+#ceas .cifre .segment6:before {
     border-width: 0 5px 5px 0;
     border-bottom-color: inherit;
     top: -5px;
 }
 
-#ceas .cifre .d6:after {
+#ceas .cifre .segment6:after {
     border-width: 0 0 5px 5px;
     border-left-color: inherit;
     bottom: -5px;
 }
 
-#ceas .cifre .d7 {
+#ceas .cifre .segment7 {
     width: 5px;
     height: 14px;
     top: 32px;
     right: 0;
 }
 
-#ceas .cifre .d7:before {
+#ceas .cifre .segment7:before {
     border-width: 0 0 5px 5px;
     border-bottom-color: inherit;
     top: -5px;
 }
 
-#ceas .cifre .d7:after {
+#ceas .cifre .segment7:after {
     border-width: 5px 0 0 5px;
     border-top-color: inherit;
     bottom: -5px;
@@ -246,182 +294,112 @@ aside {
 
 /* 1 */
 
-#ceas .cifre div.one .d5,
-#ceas .cifre div.one .d7 {
+#ceas .cifre div.unu .segment5,
+#ceas .cifre div.unu .segment7 {
     opacity: 1;
 }
 
 /* 2 */
 
-#ceas .cifre div.two .d1,
-#ceas .cifre div.two .d5,
-#ceas .cifre div.two .d2,
-#ceas .cifre div.two .d6,
-#ceas .cifre div.two .d3 {
+#ceas .cifre div.doi .segment1,
+#ceas .cifre div.doi .segment5,
+#ceas .cifre div.doi .segment2,
+#ceas .cifre div.doi .segment6,
+#ceas .cifre div.doi .segment3 {
     opacity: 1;
 }
 
 /* 3 */
 
-#ceas .cifre div.three .d1,
-#ceas .cifre div.three .d5,
-#ceas .cifre div.three .d2,
-#ceas .cifre div.three .d7,
-#ceas .cifre div.three .d3 {
+#ceas .cifre div.trei .segment1,
+#ceas .cifre div.trei .segment5,
+#ceas .cifre div.trei .segment2,
+#ceas .cifre div.trei .segment7,
+#ceas .cifre div.trei .segment3 {
     opacity: 1;
 }
 
 /* 4 */
 
-#ceas .cifre div.four .d5,
-#ceas .cifre div.four .d2,
-#ceas .cifre div.four .d4,
-#ceas .cifre div.four .d7 {
+#ceas .cifre div.patru .segment5,
+#ceas .cifre div.patru .segment2,
+#ceas .cifre div.patru .segment4,
+#ceas .cifre div.patru .segment7 {
     opacity: 1;
 }
 
 /* 5 */
 
-#ceas .cifre div.five .d1,
-#ceas .cifre div.five .d2,
-#ceas .cifre div.five .d4,
-#ceas .cifre div.five .d3,
-#ceas .cifre div.five .d7 {
+#ceas .cifre div.cinci .segment1,
+#ceas .cifre div.cinci .segment2,
+#ceas .cifre div.cinci .segment4,
+#ceas .cifre div.cinci .segment3,
+#ceas .cifre div.cinci .segment7 {
     opacity: 1;
 }
 
 /* 6 */
 
-#ceas .cifre div.six .d1,
-#ceas .cifre div.six .d2,
-#ceas .cifre div.six .d4,
-#ceas .cifre div.six .d3,
-#ceas .cifre div.six .d6,
-#ceas .cifre div.six .d7 {
+#ceas .cifre div.sase .segment1,
+#ceas .cifre div.sase .segment2,
+#ceas .cifre div.sase .segment4,
+#ceas .cifre div.sase .segment3,
+#ceas .cifre div.sase .segment6,
+#ceas .cifre div.sase .segment7 {
     opacity: 1;
 }
 
 
 /* 7 */
 
-#ceas .cifre div.seven .d1,
-#ceas .cifre div.seven .d5,
-#ceas .cifre div.seven .d7 {
+#ceas .cifre div.sapte .segment1,
+#ceas .cifre div.sapte .segment5,
+#ceas .cifre div.sapte .segment7 {
     opacity: 1;
 }
 
 /* 8 */
 
-#ceas .cifre div.eight .d1,
-#ceas .cifre div.eight .d2,
-#ceas .cifre div.eight .d3,
-#ceas .cifre div.eight .d4,
-#ceas .cifre div.eight .d5,
-#ceas .cifre div.eight .d6,
-#ceas .cifre div.eight .d7 {
+#ceas .cifre div.opt .segment1,
+#ceas .cifre div.opt .segment2,
+#ceas .cifre div.opt .segment3,
+#ceas .cifre div.opt .segment4,
+#ceas .cifre div.opt .segment5,
+#ceas .cifre div.opt .segment6,
+#ceas .cifre div.opt .segment7 {
     opacity: 1;
 }
 
 /* 9 */
 
-#ceas .cifre div.nine .d1,
-#ceas .cifre div.nine .d2,
-#ceas .cifre div.nine .d3,
-#ceas .cifre div.nine .d4,
-#ceas .cifre div.nine .d5,
-#ceas .cifre div.nine .d7 {
+#ceas .cifre div.noua .segment1,
+#ceas .cifre div.noua .segment2,
+#ceas .cifre div.noua .segment3,
+#ceas .cifre div.noua .segment4,
+#ceas .cifre div.noua .segment5,
+#ceas .cifre div.noua .segment7 {
     opacity: 1;
 }
 
 /* 0 */
 
-#ceas .cifre div.zero .d1,
-#ceas .cifre div.zero .d3,
-#ceas .cifre div.zero .d4,
-#ceas .cifre div.zero .d5,
-#ceas .cifre div.zero .d6,
-#ceas .cifre div.zero .d7 {
+#ceas .cifre div.zero .segment1,
+#ceas .cifre div.zero .segment3,
+#ceas .cifre div.zero .segment4,
+#ceas .cifre div.zero .segment5,
+#ceas .cifre div.zero .segment6,
+#ceas .cifre div.zero .segment7 {
     opacity: 1;
 }
 
 
-/* The dots */
-
-#ceas .cifre div.dots {
-    width: 5px;
-}
-
-#ceas .cifre div.dots:before,
-#ceas .cifre div.dots:after {
-    width: 5px;
-    height: 5px;
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 14px;
-}
-
-#ceas .cifre div.dots:after {
-    top: 34px;
-}
-
-
-/*  Alarma */
-#ceas .alarma {
-    width: 16px;
-    height: 16px;
-    bottom: 20px;
-    background: url('../img/alarm_light.jpg');
-    position: absolute;
-    opacity: 0.2;
-}
-
-#ceas .alarma.active {
-    opacity: 1;
-}
-
-
-/*-------------------------
-	Weekdays
---------------------------*/
-
-#ceas .weekdays {
-    font-size: 12px;
-    position: absolute;
-    width: 100%;
-    top: 10px;
-    left: 0;
-    text-align: center;
-}
-
-
-#ceas .weekdays span {
-    opacity: 0.2;
-    padding: 0 10px;
-}
-
-#ceas .weekdays span.active {
-    opacity: 1;
-}
-
-
-/*-------------------------
-		AM/PM
---------------------------*/
-
-#ceas .zinoapte {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    font-size: 12px;
-}
 
 
 /*-------------------------
 		Button
 --------------------------*/
 
-.button-holder {
+.pozitie-butoane {
     text-align: center;
     vertical-align: middle;
     margin-top: 10px;
@@ -429,18 +407,14 @@ aside {
 
 a.buton {
     background-color: orangered;
-
     border: 1px solid orangered;
     border-radius: 2px;
-
     box-shadow: 0 2px 2px #ccc;
-
     color: #fff;
     text-decoration: none !important;
     padding: 15px 20px;
     display: inline-block;
     cursor: pointer;
-
     position: relative;
     z-index: 1;
 }
@@ -449,7 +423,7 @@ a.buton {
     opacity: 0.9;
 } */
 
-.alarm-button {
+.buton-setare {
     display: hidden;   
     color: azure; 
     margin-top: 5px;
@@ -460,7 +434,7 @@ a.buton {
     cursor: pointer;
 }
 
-a:hover + .alarm-button, .alarm-button:hover{
+a:hover + .buton-setare, .buton-setare:hover{
     position: relative;
     color: white;
     background-color: orangered;
@@ -482,7 +456,7 @@ a:hover + .alarm-button, .alarm-button:hover{
     z-index: 10;
 }
 
-#msg-alarma, #time-is-up {
+#msg-alarma, #timpul-a-expirat {
     width: 500px;
     height: 375px;
     background-color: white;
@@ -535,12 +509,12 @@ a:hover + .alarm-button, .alarm-button:hover{
     background-color: white;
 }
 
-#msg-alarma .button-holder {
+#msg-alarma .pozitie-butoane {
     padding-top: 50px;
     padding-bottom: 0;
 }
 
-#msg-alarma .button-holder .buton {
+#msg-alarma .pozitie-butoane .buton {
     box-shadow: 0 2px 2px #eee;
     padding: 13px 22px;
     margin: 3px;
@@ -548,12 +522,10 @@ a:hover + .alarm-button, .alarm-button:hover{
 
 .buton.blue {
     background-color: blue;
-
-
     border-color: blue;
 }
 
-#msg-alarma .close {
+#msg-alarma .inchide {
     width: 36px;
     height: 36px;
     background: url('../img/close.png');
@@ -564,16 +536,16 @@ a:hover + .alarm-button, .alarm-button:hover{
 }
 
 
-#time-is-up {
+#timpul-a-expirat {
     height: 240px;
 }
 
-#time-is-up h2 {
+#timpul-a-expirat h2 {
     padding: 60px 0 40px;
     font-size: 30px;
 }
 
-#time-is-up .buton {
+#timpul-a-expirat .buton {
     padding: 12px 20px;
     box-shadow: 0 2px 2px #eee;
 }

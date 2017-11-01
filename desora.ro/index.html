@@ -4,20 +4,20 @@
 <head>
     <meta charset="utf-8" />
     <title>Desora</title>
-    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">    
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 
 <body>
 
-    <div id="ceas" class="dark">
-        <!-- <div class="display"> -->
-            <div class="weekdays"></div>
+    <div id="ceas">                
+            <div class="zile"></div>
             <div class="zinoapte"></div>
-            <div class="alarma"></div>    
-            <div class="cifre"></div>
-        <!-- </div> -->
-        <div class="button-holder">
-        <a class="alarm-button">Setare Alarma</a>
+            <!-- <div class="alarma fa fa-car"></div>     -->
+            <i class="alarma fa fa-clock-o" aria-hidden="true"></i>
+            <div class="cifre"></div>                
+        <div class="pozitie-butoane">
+        <a class="buton-setare">Setare Alarma</a>
     </div>
     </div>
 
@@ -30,52 +30,45 @@
 
             <h2>Setare alarma</h2>
 
-            <label class="hours">
-					Ore
+            <label class="ore">Ore
 					<input type="number" value="0" min="0" />
 				</label>
 
-            <label class="minutes">
-					Minute
+            <label class="minute">Minute
 					<input type="number" value="0" min="0" />
 				</label>
 
-            <label class="seconds">
-					Secunde
+            <label class="secunde">Secunde
 					<input type="number" value="0" min="0" />
 				</label>
 
-            <div class="button-holder">
+            <div class="pozitie-butoane">
                 <a id="alarma-setare" class="buton blue">Setare</a>
                 <a id="alarma-stergere" class="buton red">Stergere</a>
             </div>
 
-            <a class="close"></a>
+            <a class="inchide"></a>
 
         </div>
 
     </div>
 
     <div class="panou-alarma">
-
-        <div id="time-is-up">
-
+        <div id="timpul-a-expirat">
             <h2>Timpul a expirat!</h2>
-
-            <div class="button-holder">
+            <div class="pozitie-butoane">
                 <a class="buton blue">Inchide</a>
             </div>
-
         </div>
-
     </div>
 
-    <audio id="alarm-ring" preload>
+    
+    <audio id="sunatoare" preload>
 			<source src="audio/DigitalAlarm.ogg" type="audio/mpeg" />
-		</audio>
+    </audio>
 
     <!-- <footer>
-        <span class="close"></span>
+        <span class="inchide"></span>
     </footer> -->
 
     <script src="jquery.min.js"></script>

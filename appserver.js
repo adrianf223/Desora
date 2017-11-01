@@ -35,6 +35,7 @@ appServer.listen(port, function() {
 });
 
 appServer.use(express.static('node_modules/jquery/dist/'));
+appServer.use(express.static('node_modules/font-awesome/'));
 appServer.use(express.static('node_modules/moment/min/'));
 appServer.use(express.static(path.join(application_root,'desora.ro')));
 

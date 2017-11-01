@@ -5,7 +5,7 @@
     "main": "appserver.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon appserver.js" 
+        "start": "nodemon appserver.js"
     },
     "keywords": [
         "alarm",
@@ -20,6 +20,7 @@
         "mysql": "^2.15.0",
         "mysql-json": "^0.1.2",
         "path": "^0.12.7",
-        "vhost": "^3.0.2"
+        "vhost": "^3.0.2",
+        "font-awesome": "*"
     }
 }
