@@ -1,4 +1,6 @@
-import 'jquery';
+// import $ from '../node_modules/jquery/src/jquery.js';
+// import $ from "../node_modules/jquery/dist/jquery.js";
+import 'jquery'
 import {Alarma} from './clase/alarma.js';
 import {Multimedia} from './clase/multimedia.js';
 import {Registru} from './repo/registru.js';
@@ -14,6 +16,7 @@ import {Ruta} from './ui/ruta.js';
 import {Acasa} from './acasa.js';
 import {PaginaAlarme} from './pagina-alarme.js';
 import {PaginaMultimedia} from './pagina-multimedia.js';
+
 
 export class App extends Ruta {
     
@@ -49,3 +52,4 @@ export class App extends Ruta {
 
 export let app = new App();
 app.start($('body'));
+

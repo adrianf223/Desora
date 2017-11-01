@@ -1,9 +1,20 @@
 // Module dependencies.
-var application_root = __dirname, 
-express = require('express'),
-vhost = require('vhost');
-path = require('path');
-    
+var express = require('express');
+var vhost = require('vhost');
+var path = require('path');
+var MysqlJson = require('mysql-json');
+var application_root = __dirname;
+
+
+// db Initialization 
+var mysqlJson = new MysqlJson({
+    host:'127.0.0.1',
+    user:'root',
+    password:'dev!pass',
+    database : 'Desoradb'
+});   
+
+
 function createVirtualHost(domainName, dirPath) {
     return vhost(domainName, express.static(dirPath));
 }
@@ -20,35 +31,12 @@ appServer.use(desoraHost);
 //Start server. Please sudo start server under osx 
 var port = 80;
 appServer.listen(port, function() {
-
-    console.log('Express server porneste pe port %d in %s mode', port, appServer.settings.env);
+    console.log('Web serverul porneste pe port %d in mod %s ', port, appServer.settings.env);
 });
 
-// db Initialization 
-var MysqlJson = require('mysql-json');
-var mysqlJson = new MysqlJson({
-    host:'127.0.0.1',
-    user:'root',
-    password:'dev!pass',
-    database : 'Desoradb'
-});
 
-// appServer.use(express.static('dist'));
-// appServer.use(express.static(path.join(__dirname,'dist')));
-
-appServer.use(express.static('html'));
-appServer.use(express.static('js'));
-appServer.use(express.static('css')); 
-appServer.use(express.static('img'));
-// appServer.use(express.static('clase'));
-// appServer.use(express.static('node_modules/jquery/dist/'));
-// appServer.use(express.static('node_modules/traceur/bin/'));
-// appServer.use(express.static('node_modules/es6-module-loader/dist/'));
-// appServer.use(express.static('node_modules/material-design-lite/dist/'));
-// appServer.use(express.static('node_modules/jquery/dist/'));
-// appServer.use(express.static('node_modules/moment/src/'));
-appServer.use(express.static(path.join(__dirname,'node_modules/')));
-
+appServer.use(express.static(path.join(application_root,'desora.ro')));
+appServer.use(express.static(path.join(application_root,'node-modules/jquery')));
 
 
 appServer.get('/alarme-data', function(req, res) {   

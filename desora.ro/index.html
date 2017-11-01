@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Desora</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="ceas" class="dark">
+        <!-- <div class="display"> -->
+            <div class="weekdays"></div>
+            <div class="ampm"></div>
+            <div class="alarma"></div>    
+            <div class="digits"></div>
+        <!-- </div> -->
+        <div class="button-holder">
+        <a class="alarm-button">Setare Alarma</a>
+    </div>
+    </div>
+
+
+
+    <!-- The dialog is hidden with css -->
+    <div class="overlay">
+
+        <div id="msg-alarma" class="om">
+
+            <h2>Setare alarma</h2>
+
+            <label class="hours">
+					Ore
+					<input type="number" value="0" min="0" />
+				</label>
+
+            <label class="minutes">
+					Minute
+					<input type="number" value="0" min="0" />
+				</label>
+
+            <label class="seconds">
+					Secunde
+					<input type="number" value="0" min="0" />
+				</label>
+
+            <div class="button-holder">
+                <a id="alarma-setatare" class="button blue">Setare</a>
+                <a id="alarma-stergere" class="button red">Stergere</a>
+            </div>
+
+            <a class="close"></a>
+
+        </div>
+
+    </div>
+
+    <div class="overlay">
+
+        <div id="time-is-up">
+
+            <h2>Alarma!</h2>
+
+            <div class="button-holder">
+                <a class="button blue">Inchide</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <audio id="alarm-ring" preload>
+			<source src="audio/DigitalAlarm.ogg" type="audio/mpeg" />
+<!--
+			<source src="audio/ticktac.mp3" type="audio/mpeg" />
+			<source src="audio/ticktac.ogg" type="audio/ogg" />
+-->
+		</audio>
+
+    <footer>
+        <span class="close"></span>
+    </footer>
+
+    <script src="dist/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

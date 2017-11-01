@@ -1,4 +1,4 @@
-import 'jquery';
+// import 'jquery';
 import {Element} from './element.js';
 import moment from 'moment-es6';
 export class Ceas extends Element 

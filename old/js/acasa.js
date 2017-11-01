@@ -1,8 +1,10 @@
+// import 'moment';
 import {Pagina} from './ui/pagina.js';
 import {Imagine} from './ui/imagine.js';
 // import {Ceas} from './ui/ceas.js';
 import {Buton} from './ui/buton.js';
 import {app} from './app.js';
+
 
 export class Acasa extends Pagina {
     
@@ -40,6 +42,7 @@ export class Acasa extends Pagina {
     }
     
     html() {
-        return '<div style="text-align: center;">Ceas</div>';
+        // return `<div style="text-align: center;">Ceas ${moment(123456).fromNow()} </div>`;
+        return `<div style="text-align: center;">Ceas</div>`;
     }
 }
