@@ -16,11 +16,9 @@ var mysqlJson = new MysqlJson({
 });
 
 
-
-
 function createVirtualHost(domainName, dirPath) {
     return vhost(domainName, express.static(dirPath));
-}
+};
 
 //Create server
 var appServer = express();
@@ -31,18 +29,18 @@ var desoraHost = createVirtualHost("www.desora.ro", "desora");
 //Use the virtual hosts
 appServer.use(desoraHost);
 // Setting Base directory
-// appServer.use(bodyParser.json());
+appServer.use(bodyParser.json());
 
 //CORS Middleware
-// appServer.use(function (req, res, next) {
-//     //Enabling CORS 
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, contentType,Content-Type, Accept, Authorization");
-//     next();
-// });
+appServer.use(function (req, res, next) {
+    //Enabling CORS 
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, contentType,Content-Type, Accept, Authorization");
+    next();
+});
 
-//Start server. Please sudo start server under osx 
+//Start server. Please sudo start server under osx due to port 80 platform security rules
 var port = 80;
 appServer.listen(port, function () {
     console.log('Web serverul porneste pe port %d in mod %s ', port, appServer.settings.env);
