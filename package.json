@@ -7,7 +7,7 @@
         "start": "npm-run-all --parallel watch:server watch:build",
         "watch:build": "webpack --watch",
         "watch:server": "nodemon \"./appserver.js\" --watch \"./js\""
-     },
+    },
     "keywords": [
         "alarm",
         "clock"
@@ -15,18 +15,22 @@
     "author": "Adrian",
     "license": "MIT",
     "dependencies": {
+        "body-parser": "^1.18.2",
+        "bootstrap-table": "^1.8.1",
         "express": "*",
+        "font-awesome": "*",
         "jquery": "*",
         "moment-es6": "^1.0.0",
         "mysql": "^2.15.0",
         "mysql-json": "^0.1.2",
         "path": "^0.12.7",
-        "vhost": "^3.0.2",
-        "font-awesome": "*"
+        "sprintf": "^0.1.5",
+        "vhost": "^3.0.2"
     },
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
+        "npm-run-all": "^4.1.1",
         "webpack": "^3.8.1"
     }
 }

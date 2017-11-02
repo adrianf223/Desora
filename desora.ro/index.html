@@ -4,20 +4,27 @@
 <head>
     <meta charset="utf-8" />
     <title>Desora</title>
-    <link rel="stylesheet" href="css/font-awesome.min.css">    
-    <link rel="stylesheet" href="css/style.css"/>
+
+    <!-- Bootstrap table -->
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css"> -->
+    <!-- <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-table.css"> -->
+
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-    <div id="ceas">                
-            <div class="zile"></div>
-            <div class="zinoapte"></div>
-            <i class="alarma fa fa-clock-o" aria-hidden="true"></i>
-            <div class="cifre"></div>                
+    <div id="ceas">
+        <div class="zile"></div>
+        <div class="zinoapte"></div>
+        <i class="alarma fa fa-clock-o" aria-hidden="true"></i>
+        <div class="cifre"></div>
         <div class="pozitie-butoane">
-        <a class="buton-setare">Setare Alarma</a>
-    </div>
+            <a class="buton-setare">Setare Alarma</a>
+        </div>
     </div>
 
 
@@ -30,16 +37,17 @@
             <h2>Setare alarma</h2>
 
             <label class="ore">Ore
-					<input type="number" value="0" min="0" />
-				</label>
+                <input type="number" value="0" min="0" />
+            </label>
 
             <label class="minute">Minute
-					<input type="number" value="0" min="0" />
-				</label>
+                <input type="number" value="0" min="0" />
+            </label>
 
             <label class="secunde">Secunde
-					<input type="number" value="0" min="0" />
-				</label>
+                <input type="number" value="0" min="0" />
+            </label>
+            <table id="table"></table>
 
             <div class="pozitie-butoane">
                 <a id="alarma-setare" class="buton setare">Setare</a>
@@ -61,15 +69,19 @@
         </div>
     </div>
 
-    
+
     <audio id="sunatoare" preload>
-			<source src="audio/DigitalAlarm.ogg" type="audio/mpeg" />
+        <source src="audio/DigitalAlarm.ogg" type="audio/mpeg" />
     </audio>
 
 
     <!-- <script src="jquery.min.js"></script> -->
     <!-- <script src="moment.min.js"></script> -->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
     <script src="js/bundle.js"></script>
+
 
 </body>
 

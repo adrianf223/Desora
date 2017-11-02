@@ -3,3 +3,20 @@
 generated for root@localhost: 09+aopSGGpPy
 
 New password: dev!pass
+
+/* Select Desoradb */ 
+SELECT * FROM `Alarme`;
+
+/* Insert Desoradb */ 
+INSERT INTO `Alarme` (`id`, `nume`, `moment`, `ore`, `minute`, `secunde`) 
+VALUES (NULL, 'Nou', '12:00:00', '0', '0', '0');
+
+/* Update Desoradb */ 
+UPDATE `Alarme` SET `ore` = '0', `minute` = '0', `secunde` = '0' 
+WHERE `id` = '2';
+
+/* Delete row Desoradb */ 
+DELETE FROM `Alarme` WHERE `id` IN ('6');
+
+
+
