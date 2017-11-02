@@ -4,9 +4,10 @@
     "description": "Alarm clock app",
     "main": "appserver.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon appserver.js"
-    },
+        "start": "npm-run-all --parallel watch:server watch:build",
+        "watch:build": "webpack --watch",
+        "watch:server": "nodemon \"./appserver.js\" --watch \"./js\""
+     },
     "keywords": [
         "alarm",
         "clock"
@@ -22,5 +23,10 @@
         "path": "^0.12.7",
         "vhost": "^3.0.2",
         "font-awesome": "*"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "webpack": "^3.8.1"
     }
 }
