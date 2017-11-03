@@ -557,6 +557,7 @@ a:hover + .buton-setare, .buton-setare:hover{
 
 .tabel-editabil {
     position: relative;
+    color: gray;
   }
   
   .sterge-linie {
