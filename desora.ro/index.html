@@ -5,11 +5,19 @@
     <meta charset="utf-8" />
     <title>Desora</title>
 
-    <!-- Bootstrap table -->
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css"> -->
-    <!-- <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap-table.css"> -->
+    <!-- CDN Links to speedup dev -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/3.3.1/js/tabulator.min.js" ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/3.3.1/css/semantic-ui/tabulator_semantic-ui.min.css"/> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/3.3.1/css/semantic-ui/tabulator_semantic-ui.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/3.3.1/js/tabulator.min.js" type="text/javascript"></script>
+
 
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css" />
@@ -37,26 +45,26 @@
             <h2>Setare alarma</h2>
 
             <label class="ore">Ore
-                <input type="number" value="0" min="0" />
+                <input type="number" value="0" min="0" max="24"/>
             </label>
 
             <label class="minute">Minute
-                <input type="number" value="0" min="0" />
+                <input type="number" value="0" min="0" max="59"/>
             </label>
 
             <label class="secunde">Secunde
-                <input type="number" value="0" min="0" />
+                <input type="number" value="0" min="0" max="59"/>
             </label>
-            <table id="table"></table>
 
-            <div class="pozitie-butoane">
-                <a id="alarma-setare" class="buton setare">Setare</a>
-                <a id="alarma-stergere" class="buton sterge">Stergere</a>
-            </div>
+            <div id="alarme"></div>
 
-            <a class="inchide fa fa-window-close-o"></a>
-
+            <a id="alarma-setare" class="buton setare">Setare</a>
+            <a id="alarma-stergere" class="buton sterge">Stergere</a>
         </div>
+
+        <a class="inchide fa fa-window-close-o"></a>
+
+    </div>
 
     </div>
 
@@ -77,6 +85,7 @@
 
     <!-- <script src="jquery.min.js"></script> -->
     <!-- <script src="moment.min.js"></script> -->
+    <script src="js/tabel-alarme.js"></script>
     <script src="js/bundle.js"></script>
 
 

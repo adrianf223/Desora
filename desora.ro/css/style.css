@@ -533,7 +533,6 @@ a:hover + .buton-setare, .buton-setare:hover{
 #msg-alarma .inchide {
     width: 36px;
     height: 36px;
-    /* background: url('../img/close.png'); */
     position: absolute;
     top: -1px;
     right: -10px;
@@ -555,3 +554,20 @@ a:hover + .buton-setare, .buton-setare:hover{
     padding: 12px 20px;
     box-shadow: 0 2px 2px gray;
 }
+
+.tabel-editabil {
+    position: relative;
+  }
+  
+  .sterge-linie {
+    color: red;
+    cursor: pointer;
+  }
+
+  .adauga-linie {
+    color: green;
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 0;
+  }

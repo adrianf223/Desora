@@ -115,8 +115,7 @@ appServer.delete("/alarme-data:id", function (req, res) {
     });
 });
 
-
-
+//...
 
 appServer.get('/multimedia-data', function (req, res) {
     mysqlJson.query("SELECT * FROM Multimedia", function (err, response) {

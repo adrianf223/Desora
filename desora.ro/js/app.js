@@ -1,38 +1,43 @@
 import $ from "jquery";
+// import './node_modules/jquery-ui/themes/base/core.css';
+// import './node_modules/jquery-ui/themes/base/theme.css';
+// import './node_modules/jquery-ui/themes/base/selectable.css';
+// import './node_modules/jquery-ui/ui/core';
+// import './node_modules/jquery-ui/ui/widgets/selectable';
 import moment from 'moment-es6';
-import {Ceas} from './ceas.js'
+import {
+	Ceas
+} from './ceas.js'
 
 class App {
 	constructor() {
 
-		// Cache some selectors
+		let alarme = '';
+
 		let ceas = new Ceas();
 		ceas.adaugaSegmente();
 		ceas.adaugaZileleSaptamanii();
 
-		// This will hold the number of seconds left
-		// until the alarm should go off
+		// Memoreaza nr de secunde pana la declasarea alarmei
 		let secundeDeScurs = -1;
 
-		// Run a timer every second and update the clock
-
+		// Porneste un timer in fiecare secunda si reinprospateaza ceasul
 		(function actualizare() {
 			// actualizareEcran(ceas.segmente, ceas.numeleCifrelor, ceas);
 			ceas.actualizareEcran();
 
-			// Is there an alarm set?
+			// verificare daca avem alarma setata
 			if (secundeDeScurs > 0) {
-				// Decrement the counter with one second
+				// Decrementam cu o secunda
 				secundeDeScurs--;
 
-				// Activate the alarm icon
+				//activam icon display alarma
 				ceas.alarma.addClass('active');
 			} else if (secundeDeScurs == 0) {
 
 				timpulAExpirat.fadeIn();
 
-				// Play the alarm sound. This will fail
-				// in browsers which don't support HTML5 audio
+				// Declanseaza sunetul alarmei doar in html5
 				try {
 					$('#sunatoare')[0].play();
 				} catch (e) {}
@@ -40,11 +45,11 @@ class App {
 				secundeDeScurs--;
 				ceas.alarma.removeClass('active');
 			} else {
-				// The alarm has been cleared
+				// Alarma a fost desetata
 				ceas.alarma.removeClass('active');
 			}
 
-			// Schedule this function to be run again in 1 sec
+			// Ruleaza functia aceasta iar in 1 secunda
 			setTimeout(actualizare, 1000);
 
 		})();
@@ -56,26 +61,84 @@ class App {
 		let timpulAExpirat = $('#timpul-a-expirat').parent();
 
 
-		// Handle setting and clearing alamrs
+		// Event handleri pentru setare alarme
 		$('.buton-setare').click(function () {
 
-			// Show the dialog
+			// Aratam mesajul de dialog
 			msgSetareAlarma.trigger('show');
+
+			console.log("afisam tabel");
+
+			// luam lista json de la server cu alarme
+			$.getJSON("http://www.desora.ro/alarme-data", function (data) {
+				var text = JSON.stringify(data);
+				console.log(data);
+				alarme = `
+				<div id="loc-tabel" class="tabel-editabil">
+				<span class="adauga-linie">+</span>
+				<table class="tabel">
+				  <tr>
+					<th>Nume</th>
+					<th>Ore</th>
+					<th>Minute</th>
+					<th>Secunde</th>
+					<th>Stergere/Adaugare</th>
+				  </tr>
+					${data.map(d => `
+					</tr>
+					<tr>
+					  <td contenteditable="true">${d.nume}</td>
+					  <td contenteditable="true">${d.ore}</td>
+					  <td contenteditable="true">${d.minute}</td>
+					  <td contenteditable="true">${d.secunde}</td>
+					  <td>
+						<span class="sterge-linie">-</span>
+					  </td>
+					</tr>					
+					`).join('')}
+					<tr class="hide">
+					<td contenteditable="true">Nou</td>
+					<td contenteditable="true">0</td>
+					<td contenteditable="true">0</td>
+					<td contenteditable="true">0</td>
+					<td>
+					  <span class="sterge-linie">-</span>
+					</td>
+				  </tr>
+				</table>
+			  </div>
+			</div>	`;
+			
+				msgSetareAlarma.find('#alarme').append(alarme);
+
+				var tabel = $('#loc-tabel');
+				
+				$('.adauga-linie').click(function () {
+				  var cloneaza = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
+				  tabel.find('table').append(cloneaza);
+				});
+				
+				$('.sterge-linie').click(function () {
+				  $(this).parents('tr').detach();
+				});
+				
+			});
 
 		});
 
 		msgSetareAlarma.find('.inchide').click(function () {
 			msgSetareAlarma.trigger('hide')
+			alarme = '';
 		});
 
 		msgSetareAlarma.click(function (element) {
 
-			// When the overlay is clicked, 
-			// hide the dialog.
+			// Inchide dialogul cand dam click
 			if ($(element.target).is('panou-alarma')) {
-				// This check is need to prevent
-				// bubbled up events from hiding the dialog
+				// Verificare propagare evenimente pentru prevenire inchidere
 				msgSetareAlarma.trigger('hide');
+				alarme = '';
+				msgSetareAlarma.find('#alarme').empty();
 			}
 		});
 
@@ -88,12 +151,9 @@ class App {
 
 			msgSetareAlarma.find('input').each(function (indexCamp, nrIntrodus) {
 
-				// Using the validity property in HTML5-enabled browsers:
-
+				// Folosim proprietatea validity din html5 
 				if (nrIntrodus.validity && !nrIntrodus.validity.valid) {
-					// The input field contains something other than a digit,
-					// or a number less than the min value
-
+					// Verificam daca campul e valid
 					eNumarValid = false;
 					nrIntrodus.focus();
 
@@ -120,14 +180,17 @@ class App {
 		stergereAlarma.click(function () {
 			secundeDeScurs = -1;
 			msgSetareAlarma.trigger('hide');
+			msgSetareAlarma.find('#alarme').empty();
 		});
 
-		// Custom events to keep the code clean
+		// Evenimente pentru a suplini codul
 		msgSetareAlarma.on('hide', function () {
 			msgSetareAlarma.fadeOut();
+			msgSetareAlarma.find('#alarme').empty();
+
 		}).on('show', function () {
 
-			// Calculate how much time is left for the alarm to go off.
+			// Calculare timp disponibil pana la declansare alarma
 			var ore = 0;
 			var minute = 0;
 			var secunde = 0;
@@ -135,7 +198,7 @@ class App {
 
 			if (secundeDeScurs > 0) {
 
-				// There is an alarm set, calculate the remaining time
+				// Daca avem alarma activata calculeaza timpul ramas
 				tmp = secundeDeScurs;
 
 				ore = Math.floor(tmp / 3600);
@@ -147,7 +210,7 @@ class App {
 				secunde = tmp;
 			}
 
-			// Update the input fields
+			// Reimprospatare campuri
 			msgSetareAlarma.find('input').eq(0).val(ore).end().eq(1).val(minute).end().eq(2).val(secunde);
 			msgSetareAlarma.fadeIn();
 
@@ -161,4 +224,3 @@ class App {
 }
 
 let app = new App();
-
