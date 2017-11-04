@@ -25946,7 +25946,7 @@ class App {
 				</table>
 			  </div>
 			</div>	`;
-			
+
 				msgSetareAlarma.find('#alarme').append(alarme);
 
 				var tabel = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#loc-tabel');
@@ -25959,9 +25959,7 @@ class App {
 				__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.sterge-linie').click(function () {
 				  __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).parents('tr').detach();
 				});
-				
 			});
-
 		});
 
 		msgSetareAlarma.find('.inchide').click(function () {
@@ -26429,6 +26427,7 @@ class Ceas {
         }
 
         // Marcheaza ziua activa a saptamanii
+        this.zile = this.ceas.find('.zile span');        
         this.zile.removeClass('active').eq(workaroundPozitie).addClass('active');
 
         // setam indicatorul am/pm

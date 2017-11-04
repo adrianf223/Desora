@@ -69,6 +69,7 @@ export class Ceas {
         }
 
         // Marcheaza ziua activa a saptamanii
+        this.zile = this.ceas.find('.zile span');        
         this.zile.removeClass('active').eq(workaroundPozitie).addClass('active');
 
         // setam indicatorul am/pm

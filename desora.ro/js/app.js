@@ -108,7 +108,7 @@ class App {
 				</table>
 			  </div>
 			</div>	`;
-			
+
 				msgSetareAlarma.find('#alarme').append(alarme);
 
 				var tabel = $('#loc-tabel');
@@ -121,9 +121,7 @@ class App {
 				$('.sterge-linie').click(function () {
 				  $(this).parents('tr').detach();
 				});
-				
 			});
-
 		});
 
 		msgSetareAlarma.find('.inchide').click(function () {
