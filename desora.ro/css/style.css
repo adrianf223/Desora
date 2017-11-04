@@ -1,9 +1,12 @@
 /*Reset*/
+
 * {
     margin: 0;
 }
 
+
 /*General*/
+
 html {
     background-color: black;
     overflow: hidden;
@@ -15,7 +18,8 @@ body {
     z-index: 1;
 }
 
-a, a:visited {
+a,
+a:visited {
     outline: none;
     color: darkred;
 }
@@ -33,25 +37,28 @@ aside {
 
 
 /*Ceasul*/
+
 #ceas {
     width: 370px;
     margin: 20px auto 60px;
-    position: relative;    
+    position: relative;
     text-align: center;
     padding: 40px 20px 20px;
     height: 54px;
-    zoom: 1;    
+    zoom: 1;
     background-color: black;
     color: gray;
 }
 
-@media screen and (max-width: 420){
-     #clock{
-        zoom: 0;        
+@media screen and (max-width: 420) {
+    #clock {
+        zoom: 0;
     }
 }
 
+
 /* The dots */
+
 #ceas .cifre div span {
     background-color: gray;
     border-color: gray;
@@ -69,7 +76,7 @@ aside {
     position: absolute;
     left: 0;
     top: 14px;
-    background-color:gray;
+    background-color: gray;
 }
 
 #ceas .cifre div.douapuncte:after {
@@ -78,6 +85,7 @@ aside {
 
 
 /*  Alarma */
+
 #ceas .alarma {
     width: 16px;
     height: 16px;
@@ -104,7 +112,6 @@ aside {
     left: 0;
     text-align: center;
 }
-
 
 #ceas .zile span {
     opacity: 0.2;
@@ -296,6 +303,7 @@ aside {
     opacity: 1;
 }
 
+
 /* 2 */
 
 #ceas .cifre div.doi .segment1,
@@ -305,6 +313,7 @@ aside {
 #ceas .cifre div.doi .segment3 {
     opacity: 1;
 }
+
 
 /* 3 */
 
@@ -316,6 +325,7 @@ aside {
     opacity: 1;
 }
 
+
 /* 4 */
 
 #ceas .cifre div.patru .segment5,
@@ -324,6 +334,7 @@ aside {
 #ceas .cifre div.patru .segment7 {
     opacity: 1;
 }
+
 
 /* 5 */
 
@@ -334,6 +345,7 @@ aside {
 #ceas .cifre div.cinci .segment7 {
     opacity: 1;
 }
+
 
 /* 6 */
 
@@ -355,6 +367,7 @@ aside {
     opacity: 1;
 }
 
+
 /* 8 */
 
 #ceas .cifre div.opt .segment1,
@@ -367,6 +380,7 @@ aside {
     opacity: 1;
 }
 
+
 /* 9 */
 
 #ceas .cifre div.noua .segment1,
@@ -378,6 +392,7 @@ aside {
     opacity: 1;
 }
 
+
 /* 0 */
 
 #ceas .cifre div.zero .segment1,
@@ -388,8 +403,6 @@ aside {
 #ceas .cifre div.zero .segment7 {
     opacity: 1;
 }
-
-
 
 
 /*-------------------------
@@ -417,10 +430,9 @@ a.buton {
     margin: 10px;
 }
 
-
 .buton-setare {
-    display: hidden;   
-    color: azure; 
+    display: hidden;
+    color: azure;
     margin-top: 5px;
     width: 100px;
     height: 22px;
@@ -429,7 +441,8 @@ a.buton {
     cursor: pointer;
 }
 
-a:hover + .buton-setare, .buton-setare:hover{
+a:hover+.buton-setare,
+.buton-setare:hover {
     position: relative;
     color: white;
     background-color: orangered;
@@ -451,7 +464,8 @@ a:hover + .buton-setare, .buton-setare:hover{
     z-index: 10;
 }
 
-#msg-alarma, #timpul-a-expirat {
+#msg-alarma,
+#timpul-a-expirat {
     width: 500px;
     height: 375px;
     background-color: white;
@@ -462,12 +476,13 @@ a:hover + .buton-setare, .buton-setare:hover{
     left: 50%;
     margin-left: -250px;
     text-align: center;
-    zoom: 1;    
+    zoom: 1;
 }
 
 div#msg-alarma.om {
     display: table;
 }
+
 
 /* @media only screen and (max-width: 500px) {
     #alarm-dialog,
@@ -544,7 +559,6 @@ div#msg-alarma.om {
     color: black;
 }
 
-
 #timpul-a-expirat {
     height: 240px;
 }
@@ -559,44 +573,44 @@ div#msg-alarma.om {
     box-shadow: 0 2px 2px gray;
 }
 
-.tabel-editabil {
-  }
-  
-  .sterge-linie {
+.sterge-linie {
     color: red;
     cursor: pointer;
-  }
+}
 
-  .adauga-linie {
+.adauga-linie {
     color: green;
     cursor: pointer;
     position: inherit;
     /* top: 8px; */
     /* right: 0; */
-  }
+}
 
-  table {
-	color:#666;
-	font-size:12px;
-	background:#eaebec;
-	margin:20px;
-	border:#ccc 1px solid;
-	border-radius:3px;
-	display: inline-grid;
+table {
+    color: #666;
+    font-size: 12px;
+    background: #eaebec;
+    margin: 20px;
+    border: #ccc 1px solid;
+    border-radius: 3px;
+    display: inline-grid;
 }
+
 table th {
-	border-top:1px solid #fafafa;
-	border-bottom:1px solid #e0e0e0;
-	padding: 5px;
+    border-top: 1px solid #fafafa;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 5px;
 }
+
 table th:first-child {
-	text-align: left;
-	padding-left:20px;
+    text-align: left;
+    padding-left: 20px;
 }
+
 table tr:first-child th:first-child {
-	-moz-border-radius-topleft:3px;
-	-webkit-border-top-left-radius:3px;
-	border-top-left-radius:3px;
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
 }
 
 tr.hide {
@@ -604,43 +618,50 @@ tr.hide {
 }
 
 table tr {
-	text-align: center;
-	padding-left:20px;
+    text-align: center;
+    padding-left: 20px;
 }
+
 table td:first-child {
-	text-align: left;
-	padding-left:20px;
-	border-left: 0;
+    text-align: left;
+    padding-left: 20px;
+    border-left: 0;
 }
+
 table td {
-	padding: 5px;
-	border-top: 1px solid #ffffff;
-	border-bottom:1px solid #e0e0e0;
-	border-left: 1px solid #e0e0e0;
-	background: #fafafa;
-	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
-	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+    padding: 5px;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    background: #fafafa;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+    background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
 }
+
 table tr.even td {
-	background: #f6f6f6;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
-	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+    background: #f6f6f6;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+    background: -moz-linear-gradient(top, #f8f8f8, #f6f6f6);
 }
+
 table tr:last-child td {
-	border-bottom:0;
+    border-bottom: 0;
 }
+
 table tr:last-child td:first-child {
-	-moz-border-radius-bottomleft:3px;
-	-webkit-border-bottom-left-radius:3px;
-	border-bottom-left-radius:3px;
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
+
 table tr:last-child td:last-child {
-	-moz-border-radius-bottomright:3px;
-	-webkit-border-bottom-right-radius:3px;
-	border-bottom-right-radius:3px;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
+
 table tr:hover td {
-	background: #f2f2f2;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
-	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+    background: #f2f2f2;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+    background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
 }

@@ -25913,14 +25913,14 @@ class App {
 				console.log(data);
 				alarme = `
 				<div id="loc-tabel" class="tabel-editabil">
-				<span class="adauga-linie">+</span>
+				<span class="adauga-linie fa fa-plus-square">Add</span>
 				<table class="tabel">
 				  <tr>
 					<th>Nume</th>
 					<th>Ore</th>
 					<th>Minute</th>
 					<th>Secunde</th>
-					<th>Stergere/Adaugare</th>
+					<th>Stergere</th>
 				  </tr>
 					${data.map(d => `
 					</tr>
@@ -25930,7 +25930,7 @@ class App {
 					  <td contenteditable="true">${d.minute}</td>
 					  <td contenteditable="true">${d.secunde}</td>
 					  <td>
-						<span class="sterge-linie">-</span>
+						<span class="sterge-linie fa fa-trash-o"></span>
 					  </td>
 					</tr>					
 					`).join('')}
@@ -25940,7 +25940,7 @@ class App {
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
 					<td>
-					  <span class="sterge-linie">-</span>
+					  <span class="sterge-linie fa fa-trash-o"></span>
 					</td>
 				  </tr>
 				</table>
@@ -25959,6 +25959,18 @@ class App {
 				__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.sterge-linie').click(function () {
 				  __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).parents('tr').detach();
 				});
+
+				__WEBPACK_IMPORTED_MODULE_0_jquery___default()("table tr").click(function(rand){
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default()(rand).addClass('selected').siblings().removeClass('selected');    
+					var value=__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[0].innerText;
+					console.log(value);   
+
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#ore").val(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[1].innerText);
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#minute").val(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[2].innerText);
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#secunde").val(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[3].innerText);
+
+				 });
+				 
 			});
 		});
 
