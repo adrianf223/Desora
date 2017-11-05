@@ -1,9 +1,14 @@
-2017-10-15T19:20:39.239008Z 1 
-[Note] A temporary password is 
-generated for root@localhost: 09+aopSGGpPy
+mysql server backend
+---------------------
+user: root
+password: dev!pass
+database: Desoradb
 
-New password: dev!pass
+Initializarea Desoradb este in appServer.js
 
+
+Exemple query:
+----------------
 /* Select Desoradb */ 
 SELECT * FROM `Alarme`;
 

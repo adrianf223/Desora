@@ -6,7 +6,6 @@ var MysqlJson = require('mysql-json');
 var bodyParser = require("body-parser");
 var application_root = __dirname;
 
-
 // db Initialization 
 var mysqlJson = new MysqlJson({
     host: '127.0.0.1',
@@ -14,7 +13,6 @@ var mysqlJson = new MysqlJson({
     password: 'dev!pass',
     database: 'Desoradb'
 });
-
 
 function createVirtualHost(domainName, dirPath) {
     return vhost(domainName, express.static(dirPath));
@@ -97,7 +95,6 @@ appServer.put("/alarme-data/update", function (req, res) {
             res.send(JSON.stringify(response));
             // console.log(response);
         });
-
 });
 
 // DELETE API
