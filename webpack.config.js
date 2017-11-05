@@ -18,11 +18,4 @@ module.exports = {
             }
         ]
     },
-    // resolve: {
-    //     root: [
-    //         path.join(__dirname, "..", "jquery-ui", "node_modules"),
-    //         path.join(__dirname, "..", "jquery.tabulator", "node_modules"),
-    //     ],
-    //     extensions: ['', '.js', '.json'] 
-    // },
 };

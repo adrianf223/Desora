@@ -19,8 +19,6 @@
         "express": "*",
         "font-awesome": "*",
         "jquery": "*",
-        "jquery-ui": "*",
-        "jquery.tabulator": "^3.3.1",
         "moment-es6": "^1.0.0",
         "mysql": "^2.15.0",
         "mysql-json": "^0.1.2",
