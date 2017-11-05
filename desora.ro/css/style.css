@@ -40,12 +40,12 @@ aside {
 
 #ceas {
     width: 370px;
-    margin: 20px auto 60px;
+    margin: 150px auto 60px;
     position: relative;
     text-align: center;
     padding: 40px 20px 20px;
     height: 54px;
-    zoom: 1;
+    zoom: 1.6;
     background-color: black;
     color: gray;
 }
@@ -432,7 +432,7 @@ a.buton {
 
 .buton-setare {
     display: hidden;
-    color: azure;
+    color: gray;
     margin-top: 5px;
     width: 100px;
     height: 22px;

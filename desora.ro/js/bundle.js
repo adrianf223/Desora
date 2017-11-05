@@ -25916,6 +25916,7 @@ class App {
 				<span class="adauga-linie fa fa-plus-square">Add</span>
 				<table class="tabel">
 				  <tr>
+				    <th class="hidden">ID</th>				  
 					<th>Nume</th>
 					<th>Ore</th>
 					<th>Minute</th>
@@ -25925,6 +25926,7 @@ class App {
 					${data.map(d => `
 					</tr>
 					<tr>
+					  <td class="hidden">${d.id}</td>
 					  <td contenteditable="true">${d.nume}</td>
 					  <td contenteditable="true">${d.ore}</td>
 					  <td contenteditable="true">${d.minute}</td>
@@ -25935,6 +25937,7 @@ class App {
 					</tr>					
 					`).join('')}
 					<tr class="hide">
+					<td class="hidden"></td>					
 					<td contenteditable="true">Nou</td>
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
@@ -25950,27 +25953,68 @@ class App {
 				msgSetareAlarma.find('#alarme').append(alarme);
 
 				var tabel = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#loc-tabel');
-				
+
 				__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.adauga-linie').click(function () {
-				  var cloneaza = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
-				  tabel.find('table').append(cloneaza);
+					var cloneaza = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
+					tabel.find('table').append(cloneaza);
+					//   $.getJSON("http://www.desora.ro/alarme-data-insert", function (data) {
+					// 	console.log(JSON.stringify(data));
+					//   });
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.post("http://www.desora.ro/alarme-data/insert", {
+							operation: "insert",
+						},
+						function (data, status) {
+							console.log("Data: " + data + "\nStatus: " + status);
+						});
+
 				});
-				
-				__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.sterge-linie').click(function () {
-				  __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).parents('tr').detach();
+
+				__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.sterge-linie').click(function (rand) {
+					let idDeSters = rand.currentTarget.parentElement.parentElement.children[0].innerText;
+					console.log(idDeSters);
+
+					let url = 'http://www.desora.ro/alarme-data/delete';
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajax({
+						url: url + '?' + __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.param({
+							"id": idDeSters
+						}),
+						type: 'DELETE',
+					});
+
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).parents('tr').detach();
 				});
 
-				__WEBPACK_IMPORTED_MODULE_0_jquery___default()("table tr").click(function(rand){
-					__WEBPACK_IMPORTED_MODULE_0_jquery___default()(rand).addClass('selected').siblings().removeClass('selected');    
-					var value=__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[0].innerText;
-					console.log(value);   
+				__WEBPACK_IMPORTED_MODULE_0_jquery___default()("table tr").click(function (rand) {
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default()(rand).addClass('selected').siblings().removeClass('selected');
+					// var value=$(this)[0];
+					// console.dir(value);  
+					let id = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[0].innerText;
+					let nume = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[1].innerText;
+					let ore = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[2].innerText;
+					let minute = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[3].innerText;
+					let secunde = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[4].innerText;
 
-					__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#ore").val(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[1].innerText);
-					__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#minute").val(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[2].innerText);
-					__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#secunde").val(__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[3].innerText);
+					// Adaugam id ore minute secunde de pe pos 0,2,3,4
+					// $("#id").val(id);
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#ore").val(ore);
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#minute").val(minute);
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#secunde").val(secunde);
 
-				 });
-				 
+					let url = 'http://www.desora.ro/alarme-data/update';
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajax({
+						url: url + '?' + __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.param({
+							"id": id,
+							"nume": nume,
+							"ore": ore,
+							"minute": minute,
+							"secunde": secunde
+						}),
+						type: 'PUT',
+					}).done(function() { console.log( "success: " );})
+					  .fail(function() { console.log( "error" ); })
+					  .always(function() {console.log( "complete");});
+				});
+
 			});
 		});
 

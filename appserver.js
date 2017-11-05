@@ -29,6 +29,9 @@ var desoraHost = createVirtualHost("www.desora.ro", "desora");
 //Use the virtual hosts
 appServer.use(desoraHost);
 // Setting Base directory
+appServer.use(bodyParser.urlencoded({
+    extended: true
+}));
 appServer.use(bodyParser.json());
 
 //CORS Middleware
@@ -55,62 +58,59 @@ appServer.use(express.static(path.join(application_root, 'desora.ro')));
 
 appServer.get('/alarme-data', function (req, res) {
     mysqlJson.query("SELECT * FROM Alarme", function (err, response) {
-        if (err) throw err;
+        if (err) console.warn(err) ;
         res.send(JSON.stringify(response));
     });
 });
 
-//POST API
-appServer.post("/alarme-data/nou ", function (req, res) {
+appServer.post("/alarme-data/insert", function (req, res) {
     /* Insert Desoradb */
     // INSERT INTO `Alarme` (`id`, `nume`, `moment`, `ore`, `minute`, `secunde`) 
-    // VALUES (NULL, req.body.nume, '12:00:00', req.body.ore, req.body.minute, req.body.secunde);
-    mysqlJson.insert('Alarme', {
-        id: NULL,
-        nume: req.body.nume,
-        moment: '12:00:00',
-        ore: req.body.ore,
-        minute: req.body.minute,
-        secunde: req.body.secunde
-    }, function (err, response) {
-        if (err) throw err;
-        console.log(response);
-    });
-});
-
-//PUT API
-appServer.put("/alarme-data:id", function (req, res) {
-    /* Update Desoradb */
-    // UPDATE `Alarme` SET `ore` = '0', `minute` = '0', `secunde` = '0' 
-    // WHERE `id` = '1';
-    mysqlJson.update('Alarme', {
-            nume: req.body.nume,
-            ore: req.body.ore,
-            minute: req.body.minute,
-            secunde: req.body.secunde
-        }, {
-            id: {
-                operator: '=',
-                value: req.body.id
-            }
-        },
+    // VALUES (NULL, req.body.nume, req.body.ore, req.body.minute, req.body.secunde);
+    mysqlJson.query("INSERT INTO `Alarme` (`id`, `nume`, `ore`, `minute`, `secunde`) VALUES (NULL, 'Nou', '0', '0', '0')",
         function (err, response) {
-            if (err) throw err;
-            console.log(response);
+            if (err) console.log(err);
+            res.send(JSON.stringify(response));
+            console.log(JSON.stringify(response));
         });
 });
 
+appServer.put("/alarme-data/update", function (req, res) {
+
+    console.log('update: ' + req.query);
+
+    mysqlJson.update('Alarme', {
+            nume: req.query.nume,
+            ore: req.query.ore,
+            minute: req.query.minute,
+            secunde: req.query.secunde
+        }, {
+            id: {
+                operator: '=',
+                value: req.query.id
+            }
+        },
+        function (err, response) {
+            if (err) console.warn(err);
+            res.send(JSON.stringify(response));            
+            console.log(response);
+        });
+
+});
+
 // DELETE API
-appServer.delete("/alarme-data:id", function (req, res) {
+appServer.delete("/alarme-data/delete", function (req, res) {
+    console.dir('stergem ' + req.query);
     /* Delete row Desoradb */
     // DELETE FROM `Alarme` WHERE `id` IN ('6');
     mysqlJson.delete('Alarme', {
         id: {
             operator: '=',
-            value: req.body.id
+            value: req.query.id
         }
     }, function (err, response) {
-        if (err) throw err;
-        console.log(response);
+        if (err) console.log(err);
+        // console.log(response);
+        res.send(JSON.stringify(response));
     });
 });
