@@ -78,7 +78,7 @@ class App {
 				<span class="adauga-linie fa fa-plus-square">Add</span>
 				<table class="tabel">
 				  <tr>
-				    <th class="hidden">ID</th>				  
+				    <th class="idascuns">ID</th>				  
 					<th>Nume</th>
 					<th>Ore</th>
 					<th>Minute</th>
@@ -88,7 +88,7 @@ class App {
 					${data.map(d => `
 					</tr>
 					<tr>
-					  <td class="hidden">${d.id}</td>
+					  <td class="idascuns">${d.id}</td>
 					  <td contenteditable="true">${d.nume}</td>
 					  <td contenteditable="true">${d.ore}</td>
 					  <td contenteditable="true">${d.minute}</td>
@@ -99,7 +99,7 @@ class App {
 					</tr>					
 					`).join('')}
 					<tr class="hide">
-					<td class="hidden"></td>					
+					<td class="idascuns"></td>					
 					<td contenteditable="true">Nou</td>
 					<td contenteditable="true">0</td>
 					<td contenteditable="true">0</td>
@@ -117,8 +117,8 @@ class App {
 				var tabel = $('#loc-tabel');
 
 				$('.adauga-linie').click(function () {
-					var cloneaza = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
-					tabel.find('table').append(cloneaza);
+					var randNou = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
+					tabel.find('table').append(randNou);
 					//   $.getJSON("http://www.desora.ro/alarme-data-insert", function (data) {
 					// 	console.log(JSON.stringify(data));
 					//   });
@@ -126,7 +126,10 @@ class App {
 							operation: "insert",
 						},
 						function (data, status) {
-							console.log("Data: " + data + "\nStatus: " + status);
+							console.log("Added Data Status: " + status);
+							console.dir(JSON.parse(data).insertId);
+							console.dir(randNou);
+							randNou[0].children[0].innerText = JSON.parse(data).insertId;
 						});
 
 				});

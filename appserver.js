@@ -72,6 +72,7 @@ appServer.post("/alarme-data/insert", function (req, res) {
             if (err) console.log(err);
             res.send(JSON.stringify(response));
             console.log(JSON.stringify(response));
+            console.dir(response);
         });
 });
 
