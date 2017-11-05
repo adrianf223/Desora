@@ -4,7 +4,6 @@
     margin: 0;
 }
 
-
 /*General*/
 
 html {
@@ -37,7 +36,6 @@ aside {
 
 
 /*Ceasul*/
-
 #ceas {
     width: 370px;
     margin: 150px auto 60px;
@@ -57,8 +55,7 @@ aside {
 }
 
 
-/* The dots */
-
+/* Segmentele */
 #ceas .cifre div span {
     background-color: gray;
     border-color: gray;
@@ -85,7 +82,6 @@ aside {
 
 
 /*  Alarma */
-
 #ceas .alarma {
     width: 16px;
     height: 16px;
@@ -100,10 +96,8 @@ aside {
 }
 
 
-/*-------------------------
-	Weekdays
---------------------------*/
 
+/* Zilele saptamanii */
 #ceas .zile {
     font-size: 12px;
     position: absolute;
@@ -123,10 +117,7 @@ aside {
 }
 
 
-/*-------------------------
-		AM/PM
---------------------------*/
-
+/* am/pm */
 #ceas .zinoapte {
     position: absolute;
     bottom: 20px;
@@ -135,10 +126,7 @@ aside {
 }
 
 
-/*-------------------------
-	The Digits
---------------------------*/
-
+/* Cifrele */
 #ceas .cifre div {
     text-align: left;
     position: relative;
@@ -297,7 +285,6 @@ aside {
 
 
 /* 1 */
-
 #ceas .cifre div.unu .segment5,
 #ceas .cifre div.unu .segment7 {
     opacity: 1;
@@ -305,7 +292,6 @@ aside {
 
 
 /* 2 */
-
 #ceas .cifre div.doi .segment1,
 #ceas .cifre div.doi .segment5,
 #ceas .cifre div.doi .segment2,
@@ -316,7 +302,6 @@ aside {
 
 
 /* 3 */
-
 #ceas .cifre div.trei .segment1,
 #ceas .cifre div.trei .segment5,
 #ceas .cifre div.trei .segment2,
@@ -327,7 +312,6 @@ aside {
 
 
 /* 4 */
-
 #ceas .cifre div.patru .segment5,
 #ceas .cifre div.patru .segment2,
 #ceas .cifre div.patru .segment4,
@@ -337,7 +321,6 @@ aside {
 
 
 /* 5 */
-
 #ceas .cifre div.cinci .segment1,
 #ceas .cifre div.cinci .segment2,
 #ceas .cifre div.cinci .segment4,
@@ -348,7 +331,6 @@ aside {
 
 
 /* 6 */
-
 #ceas .cifre div.sase .segment1,
 #ceas .cifre div.sase .segment2,
 #ceas .cifre div.sase .segment4,
@@ -360,7 +342,6 @@ aside {
 
 
 /* 7 */
-
 #ceas .cifre div.sapte .segment1,
 #ceas .cifre div.sapte .segment5,
 #ceas .cifre div.sapte .segment7 {
@@ -369,7 +350,6 @@ aside {
 
 
 /* 8 */
-
 #ceas .cifre div.opt .segment1,
 #ceas .cifre div.opt .segment2,
 #ceas .cifre div.opt .segment3,
@@ -382,7 +362,6 @@ aside {
 
 
 /* 9 */
-
 #ceas .cifre div.noua .segment1,
 #ceas .cifre div.noua .segment2,
 #ceas .cifre div.noua .segment3,
@@ -394,7 +373,6 @@ aside {
 
 
 /* 0 */
-
 #ceas .cifre div.zero .segment1,
 #ceas .cifre div.zero .segment3,
 #ceas .cifre div.zero .segment4,
@@ -405,10 +383,7 @@ aside {
 }
 
 
-/*-------------------------
-		Button
---------------------------*/
-
+/* butoane */
 .pozitie-butoane {
     text-align: center;
     vertical-align: middle;
@@ -449,10 +424,7 @@ a:hover+.buton-setare,
 }
 
 
-/*-------------------------
-	Alarm Dialog
---------------------------*/
-
+/* Alarma */
 .panou-alarma {
     display: none;
     position: fixed;
@@ -585,6 +557,7 @@ div#msg-alarma.om {
     /* top: 8px; */
     /* right: 0; */
 }
+
 
 table {
     color: #666;
