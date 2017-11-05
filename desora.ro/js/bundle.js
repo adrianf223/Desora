@@ -25839,11 +25839,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_es6___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_es6__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ceas_js__ = __webpack_require__(124);
 
-// import './node_modules/jquery-ui/themes/base/core.css';
-// import './node_modules/jquery-ui/themes/base/theme.css';
-// import './node_modules/jquery-ui/themes/base/selectable.css';
-// import './node_modules/jquery-ui/ui/core';
-// import './node_modules/jquery-ui/ui/widgets/selectable';
 
 
 
@@ -25957,9 +25952,7 @@ class App {
 				__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.adauga-linie').click(function () {
 					var randNou = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
 					tabel.find('table').append(randNou);
-					//   $.getJSON("http://www.desora.ro/alarme-data-insert", function (data) {
-					// 	console.log(JSON.stringify(data));
-					//   });
+
 					__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.post("http://www.desora.ro/alarme-data/insert", {
 							operation: "insert",
 						},

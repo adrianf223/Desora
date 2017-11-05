@@ -1,9 +1,4 @@
 import $ from "jquery";
-// import './node_modules/jquery-ui/themes/base/core.css';
-// import './node_modules/jquery-ui/themes/base/theme.css';
-// import './node_modules/jquery-ui/themes/base/selectable.css';
-// import './node_modules/jquery-ui/ui/core';
-// import './node_modules/jquery-ui/ui/widgets/selectable';
 import moment from 'moment-es6';
 import {
 	Ceas
@@ -119,9 +114,7 @@ class App {
 				$('.adauga-linie').click(function () {
 					var randNou = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
 					tabel.find('table').append(randNou);
-					//   $.getJSON("http://www.desora.ro/alarme-data-insert", function (data) {
-					// 	console.log(JSON.stringify(data));
-					//   });
+
 					$.post("http://www.desora.ro/alarme-data/insert", {
 							operation: "insert",
 						},
