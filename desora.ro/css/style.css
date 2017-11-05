@@ -444,7 +444,7 @@ a:hover+.buton-setare,
     border-radius: 2px;
     box-shadow: 0 0 8px gray;
     position: fixed;
-    top: 200px;
+    top: 50px;
     left: 50%;
     margin-left: -250px;
     text-align: center;
@@ -454,15 +454,6 @@ a:hover+.buton-setare,
 div#msg-alarma.om {
     display: table;
 }
-
-
-/* @media only screen and (max-width: 500px) {
-    #alarm-dialog,
-    #time-is-up {
-        background-color: red;
-        zoom: 0;        
-    }
-} */
 
 #msg-alarma h2 {
     text-transform: uppercase;

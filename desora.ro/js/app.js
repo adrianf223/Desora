@@ -62,12 +62,12 @@ class App {
 			// Aratam mesajul de dialog
 			msgSetareAlarma.trigger('show');
 
-			console.log("afisam tabel");
+			// console.log("afisam tabel");
 
 			// luam lista json de la server cu alarme
 			$.getJSON("http://www.desora.ro/alarme-data", function (data) {
 				var text = JSON.stringify(data);
-				console.log(data);
+				// console.log(data);
 				alarme = `
 				<div id="loc-tabel" class="tabel-editabil">
 				<span class="adauga-linie fa fa-plus-square">Add</span>
@@ -119,9 +119,9 @@ class App {
 							operation: "insert",
 						},
 						function (data, status) {
-							console.log("Added Data Status: " + status);
-							console.dir(JSON.parse(data).insertId);
-							console.dir(randNou);
+							// console.log("Added Data Status: " + status);
+							// console.dir(JSON.parse(data).insertId);
+							// console.dir(randNou);
 							randNou[0].children[0].innerText = JSON.parse(data).insertId;
 						});
 
@@ -129,7 +129,7 @@ class App {
 
 				$('.sterge-linie').click(function (rand) {
 					let idDeSters = rand.currentTarget.parentElement.parentElement.children[0].innerText;
-					console.log(idDeSters);
+					// console.log(idDeSters);
 
 					let url = 'http://www.desora.ro/alarme-data/delete';
 					$.ajax({
@@ -160,17 +160,17 @@ class App {
 
 					let url = 'http://www.desora.ro/alarme-data/update';
 					$.ajax({
-						url: url + '?' + $.param({
-							"id": id,
-							"nume": nume,
-							"ore": ore,
-							"minute": minute,
-							"secunde": secunde
-						}),
-						type: 'PUT',
-					}).done(function() { console.log( "success: " );})
-					  .fail(function() { console.log( "error" ); })
-					  .always(function() {console.log( "complete");});
+							url: url + '?' + $.param({
+								"id": id,
+								"nume": nume,
+								"ore": ore,
+								"minute": minute,
+								"secunde": secunde
+							}),
+							type: 'PUT',
+						}).done(function () { /* console.info( "success update "); */ })
+						.fail(function () { /* console.warn( "error update" ); */ })
+						.always(function () { /*console.log( "complete update"); */ });
 				});
 
 			});

@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.19)
 # Database: Desoradb
-# Generation Time: 2017-11-05 11:34:20 +0000
+# Generation Time: 2017-11-05 20:30:18 +0000
 # ************************************************************
 
 
@@ -39,12 +39,10 @@ LOCK TABLES `Alarme` WRITE;
 
 INSERT INTO `Alarme` (`id`, `nume`, `ore`, `minute`, `secunde`)
 VALUES
-	(1,'Amiaza',12,30,33),
-	(2,'Noaptea',0,0,0),
-	(3,'LaDoi',14,23,34),
-	(7,'Acum',0,0,1),
-	(13,'Nou',0,0,1),
-	(14,'Nou',0,0,1);
+	(80,'Cinci minute',0,5,0),
+	(81,'Un minut',0,1,0),
+	(95,'Trei secunde',0,0,3),
+	(112,'Noua alarma',5,0,0);
 
 /*!40000 ALTER TABLE `Alarme` ENABLE KEYS */;
 UNLOCK TABLES;
