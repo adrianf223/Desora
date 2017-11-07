@@ -1,0 +1,31 @@
+[{
+    "id": 80,
+    "nume": "Cinci minute",
+    "ore": 0,
+    "minute": 5,
+    "secunde": 0
+}, {
+    "id": 81,
+    "nume": "Un minut",
+    "ore": 0,
+    "minute": 2,
+    "secunde": 0
+}, {
+    "id": 95,
+    "nume": "Trei secunde",
+    "ore": 0,
+    "minute": 0,
+    "secunde": 3
+}, {
+    "id": 112,
+    "nume": "Noua alarma",
+    "ore": 5,
+    "minute": 0,
+    "secunde": 0
+}, {
+    "id": 115,
+    "nume": "Nou",
+    "ore": 0,
+    "minute": 7,
+    "secunde": 0
+}]

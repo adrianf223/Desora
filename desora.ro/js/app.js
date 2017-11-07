@@ -8,6 +8,7 @@ class App {
 	constructor() {
 
 		let alarme = '';
+		let alarmeData;
 
 		let ceas = new Ceas();
 		ceas.adaugaSegmente();
@@ -49,12 +50,10 @@ class App {
 
 		})();
 
-
 		let msgSetareAlarma = $('#msg-alarma').parent();
 		let setareAlarma = $('#alarma-setare');
 		let stergereAlarma = $('#alarma-stergere');
 		let timpulAExpirat = $('#timpul-a-expirat').parent();
-
 
 		// Event handleri pentru setare alarme
 		$('.buton-setare').click(function () {
@@ -64,9 +63,18 @@ class App {
 
 			// console.log("afisam tabel");
 
+			// Dupa discutia cu Matei se cere ca sa incarce datele dintr-un
+			// fisier local daca nu ruleaza de pe site-ul initial.
+			// Nota aici, aplicatia va functiona in acest caz partial...
+			// Hack: daca lansam applicatia de pe alt site decat cel cu db-ul incarca un json local
+			if (window.location.host == 'www.desora.ro') alarmeData =  "alarme-data";
+			else $.getJSON("alarmeData.json", function(json) {
+				alarmeData = json; 
+			});
+
 			// luam lista json de la server cu alarme
-			$.getJSON("http://www.desora.ro/alarme-data", function (data) {
-				var text = JSON.stringify(data);
+			$.getJSON("alarme-data", function (data) {
+				// var text = JSON.stringify(data);
 				// console.log(data);
 				alarme = `
 				<div id="loc-tabel" class="tabel-editabil">
@@ -81,7 +89,6 @@ class App {
 					<th>Stergere</th>
 				  </tr>
 					${data.map(d => `
-					</tr>
 					<tr>
 					  <td class="idascuns">${d.id}</td>
 					  <td contenteditable="true">${d.nume}</td>
@@ -108,20 +115,13 @@ class App {
 			</div>	`;
 
 				msgSetareAlarma.find('#alarme').append(alarme);
-
-				var tabel = $('#loc-tabel');
-
+			
 				$('.adauga-linie').click(function () {
+					var tabel = $('#loc-tabel');
 					var randNou = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
 					tabel.find('table').append(randNou);
 
-					$.post("http://www.desora.ro/alarme-data/insert", {
-							operation: "insert",
-						},
-						function (data, status) {
-							// console.log("Added Data Status: " + status);
-							// console.dir(JSON.parse(data).insertId);
-							// console.dir(randNou);
+					$.post("alarme-data/insert", {operation: "insert"}, function (data, status) {
 							randNou[0].children[0].innerText = JSON.parse(data).insertId;
 						});
 
@@ -131,7 +131,7 @@ class App {
 					let idDeSters = rand.currentTarget.parentElement.parentElement.children[0].innerText;
 					// console.log(idDeSters);
 
-					let url = 'http://www.desora.ro/alarme-data/delete';
+					let url = 'alarme-data/delete';
 					$.ajax({
 						url: url + '?' + $.param({
 							"id": idDeSters
@@ -158,7 +158,7 @@ class App {
 					$("#minute").val(minute);
 					$("#secunde").val(secunde);
 
-					let url = 'http://www.desora.ro/alarme-data/update';
+					let url = 'alarme-data/update';
 					$.ajax({
 							url: url + '?' + $.param({
 								"id": id,
@@ -172,10 +172,9 @@ class App {
 						.fail(function () { /* console.warn( "error update" ); */ })
 						.always(function () { /*console.log( "complete update"); */ });
 				});
-
-			});
 		});
-
+	});
+	
 		msgSetareAlarma.find('.inchide').click(function () {
 			msgSetareAlarma.trigger('hide')
 			alarme = '';
