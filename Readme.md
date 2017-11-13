@@ -27,7 +27,7 @@ adresa configurata www.desora.ro editeaza
   - Deschidere aplicatie: din chrome-browser www.desora.ro
 
 `(OSX/Linux: Pentru ca rulam webserver-ul cu aplicatia pe portul 80 
-avem nevoie de privilegii de administrator, acesate cu sudo)`
+avem nevoie de privilegii de administrator, accesate cu sudo)`
 
 ### Pentru pornirea direct din github:
 Accesati: https://adrianf223.github.io/Desora/desora.ro/   
