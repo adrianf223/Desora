@@ -46,7 +46,7 @@ appServer.listen(port, function () {
     console.log('Web serverul porneste pe port %d in mod %s ', port, appServer.settings.env);
 });
 
-appServer.use(express.static('node_modules/font-awesome/'));
+// appServer.use(express.static('node_modules/font-awesome/'));
 appServer.use(express.static('node_modules/'));
 
 appServer.use(express.static(path.join(application_root, 'desora.ro')));
