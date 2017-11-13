@@ -3,14 +3,12 @@ Un proiect despre un ceas cu alarma.
 Aplicația se poate folosi intr-o brutărie/pizzerie pentru pregătirea comenzilor,
 sau acasa ca timer in gospodarie.
 
-Technologii folosite:
-======================
+### Technologii folosite:
 - Backend: Node.js, Express.js, MySql
 - Dev: JavaScript/ES6, Webpack
 - Frontend: HTML5, JQuery, Moment.js
 
-Instalare:
-===========
+### Instalare:
 1. Download, install NodeJS: http://www.nodejs.org/
 2. Download, install mysql: http://www.mysql.org/
 
@@ -31,6 +29,7 @@ adresa configurata www.desora.ro editeaza
 `(OSX/Linux: Pentru ca rulam webserver-ul cu aplicatia pe portul 80 
 avem nevoie de privilegii de administrator, acesate cu sudo)`
 
-Pentru pornirea direct din github accesati: https://adrianf223.github.io/Desora/desora.ro/ 
-
-Legatura cu backend-ul si bazele de date nu va fi disponibila insa; datele se incarca static dintr-un exemplu.
+### Pentru pornirea direct din github:
+Accesati: https://adrianf223.github.io/Desora/desora.ro/   
+In acest mod legatura cu backend-ul si bazele de date nu va fi disponibila insa; 
+datele se incarca static dintr-un exemplu.
