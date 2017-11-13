@@ -25847,6 +25847,7 @@ class App {
 
 		let alarme = '';
 		let alarmeData;
+		let avemDatabase = false;
 
 		let ceas = new __WEBPACK_IMPORTED_MODULE_2__ceas_js__["a" /* Ceas */]();
 		ceas.adaugaSegmente();
@@ -25907,8 +25908,10 @@ class App {
 			// Hack: daca lansam applicatia de pe alt site decat cel cu db-ul incarca un json local
 			if (window.location.host == 'www.desora.ro') {
 				alarmeData = "alarme-data";
+				avemDatabase = true;
 			} else {
 				alarmeData = "alarmeData.json";
+				avemDatabase = false;
 			}
 
 			// luam lista json de la server cu alarme
@@ -25963,11 +25966,13 @@ class App {
 					var randNou = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
 					tabel.find('table').append(randNou);
 
-					__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.post("alarme-data/insert", {
-						operation: "insert"
-					}, function (data, status) {
-						randNou[0].children[0].innerText = JSON.parse(data).insertId;
-					});
+					if (avemDatabase) {
+						__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.post("alarme-data/insert", {
+							operation: "insert"
+						}, function (data, status) {
+							randNou[0].children[0].innerText = JSON.parse(data).insertId;
+						});
+					}
 
 				});
 
@@ -25976,14 +25981,15 @@ class App {
 					// console.log(idDeSters);
 
 					let url = 'alarme-data/delete';
-					__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajax({
-						url: url + '?' + __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.param({
-							"id": idDeSters
-						}),
-						type: 'DELETE',
-					});
-
-					__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).parents('tr').detach();
+					if (avemDatabase) {
+						__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajax({
+							url: url + '?' + __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.param({
+								"id": idDeSters
+							}),
+							type: 'DELETE',
+						});
+						__WEBPACK_IMPORTED_MODULE_0_jquery___default()(this).parents('tr').detach();
+					}
 				});
 
 				__WEBPACK_IMPORTED_MODULE_0_jquery___default()("table tr").click(function (rand) {
@@ -26004,18 +26010,20 @@ class App {
 					__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#secunde").val(secunde);
 
 					let url = 'alarme-data/update';
-					__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajax({
-							url: url + '?' + __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.param({
-								"id": id,
-								"nume": nume,
-								"ore": ore,
-								"minute": minute,
-								"secunde": secunde
-							}),
-							type: 'PUT',
-						}).done(function () { /* console.info( "success update "); */ })
-						.fail(function () { /* console.warn( "error update" ); */ })
-						.always(function () { /*console.log( "complete update"); */ });
+					if (avemDatabase) {
+						__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.ajax({
+								url: url + '?' + __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.param({
+									"id": id,
+									"nume": nume,
+									"ore": ore,
+									"minute": minute,
+									"secunde": secunde
+								}),
+								type: 'PUT',
+							}).done(function () { /* console.info( "success update "); */ })
+							.fail(function () { /* console.warn( "error update" ); */ })
+							.always(function () { /*console.log( "complete update"); */ });
+					}
 				});
 			});
 		});
