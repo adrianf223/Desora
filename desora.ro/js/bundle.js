@@ -25905,15 +25905,21 @@ class App {
 			// fisier local daca nu ruleaza de pe site-ul initial.
 			// Nota aici, aplicatia va functiona in acest caz partial...
 			// Hack: daca lansam applicatia de pe alt site decat cel cu db-ul incarca un json local
-			if (window.location.host == 'www.desora.ro') alarmeData =  "alarme-data";
-			else __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.getJSON("alarmeData.json", function(json) {
-				alarmeData = json; 
-			});
+			// if (window.location.host == 'www.desora.ro') alarmeData =  "www.desora.ro/alarme-data";
+			// else $.getJSON("alarmeData.json", function(json) {
+			// 	alarmeData = json; 
+			// });
 
 			// luam lista json de la server cu alarme
-			__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.getJSON("alarme-data", function (data) {
+			__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.getJSON('alarme-data', function (data) {
+
+				if (window.location.host != 'www.desora.ro') 
+					data = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.getJSON("alarmeData.json");
+
 				// var text = JSON.stringify(data);
-				// console.log(data);
+				console.log(JSON.stringify(data));
+
+
 				alarme = `
 				<div id="loc-tabel" class="tabel-editabil">
 				<span class="adauga-linie fa fa-plus-square">Add</span>
@@ -25984,11 +25990,12 @@ class App {
 					__WEBPACK_IMPORTED_MODULE_0_jquery___default()(rand).addClass('selected').siblings().removeClass('selected');
 					// var value=$(this)[0];
 					// console.dir(value);  
-					let id = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[0].innerText;
-					let nume = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[1].innerText;
-					let ore = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[2].innerText;
-					let minute = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[3].innerText;
-					let secunde = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this)[0].cells[4].innerText;
+					var tr = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this);
+					let id = tr[0].cells[0].innerText;
+					let nume = tr[0].cells[1].innerText;
+					let ore = tr[0].cells[2].innerText;
+					let minute = tr[0].cells[3].innerText;
+					let secunde = tr[0].cells[4].innerText;
 
 					// Adaugam id ore minute secunde de pe pos 0,2,3,4
 					// $("#id").val(id);
