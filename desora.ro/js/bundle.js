@@ -25921,7 +25921,7 @@ class App {
 			__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.getJSON(alarmeData, function (data) {
 
 				// var text = JSON.stringify(data);
-				console.log(JSON.stringify(data));
+				// console.log(JSON.stringify(data));
 
 
 				alarme = `

@@ -83,7 +83,7 @@ class App {
 			$.getJSON(alarmeData, function (data) {
 
 				// var text = JSON.stringify(data);
-				console.log(JSON.stringify(data));
+				// console.log(JSON.stringify(data));
 
 
 				alarme = `
