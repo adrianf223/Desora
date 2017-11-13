@@ -74,6 +74,9 @@ class App {
 			} else {
 				alarmeData = "alarmeData.json";
 				avemDatabase = false;
+				msgSetareAlarma.find('#alarme').append(`
+				<div id="mockup">Fara conexiune la baza de date. Se incarca date de test.</div>
+				`);				
 			}
 
 			// luam lista json de la server cu alarme
@@ -150,8 +153,8 @@ class App {
 							}),
 							type: 'DELETE',
 						});
-						$(this).parents('tr').detach();
 					}
+					$(this).parents('tr').detach();
 				});
 
 				$("table tr").click(function (rand) {
