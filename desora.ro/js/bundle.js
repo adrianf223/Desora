@@ -25905,16 +25905,14 @@ class App {
 			// fisier local daca nu ruleaza de pe site-ul initial.
 			// Nota aici, aplicatia va functiona in acest caz partial...
 			// Hack: daca lansam applicatia de pe alt site decat cel cu db-ul incarca un json local
-			// if (window.location.host == 'www.desora.ro') alarmeData =  "www.desora.ro/alarme-data";
-			// else $.getJSON("alarmeData.json", function(json) {
-			// 	alarmeData = json; 
-			// });
+			if (window.location.host == 'www.desora.ro') {
+				alarmeData = "alarme-data";
+			} else {
+				alarmeData = "alarmeData.json";
+			}
 
 			// luam lista json de la server cu alarme
-			__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.getJSON('alarme-data', function (data) {
-
-				if (window.location.host != 'www.desora.ro') 
-					data = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a.getJSON("alarmeData.json");
+			__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.getJSON(alarmeData, function (data) {
 
 				// var text = JSON.stringify(data);
 				console.log(JSON.stringify(data));
@@ -25959,15 +25957,17 @@ class App {
 			</div>	`;
 
 				msgSetareAlarma.find('#alarme').append(alarme);
-			
+
 				__WEBPACK_IMPORTED_MODULE_0_jquery___default()('.adauga-linie').click(function () {
 					var tabel = __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#loc-tabel');
 					var randNou = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
 					tabel.find('table').append(randNou);
 
-					__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.post("alarme-data/insert", {operation: "insert"}, function (data, status) {
-							randNou[0].children[0].innerText = JSON.parse(data).insertId;
-						});
+					__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.post("alarme-data/insert", {
+						operation: "insert"
+					}, function (data, status) {
+						randNou[0].children[0].innerText = JSON.parse(data).insertId;
+					});
 
 				});
 
@@ -26017,9 +26017,9 @@ class App {
 						.fail(function () { /* console.warn( "error update" ); */ })
 						.always(function () { /*console.log( "complete update"); */ });
 				});
+			});
 		});
-	});
-	
+
 		msgSetareAlarma.find('.inchide').click(function () {
 			msgSetareAlarma.trigger('hide')
 			alarme = '';

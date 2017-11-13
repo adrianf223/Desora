@@ -67,16 +67,14 @@ class App {
 			// fisier local daca nu ruleaza de pe site-ul initial.
 			// Nota aici, aplicatia va functiona in acest caz partial...
 			// Hack: daca lansam applicatia de pe alt site decat cel cu db-ul incarca un json local
-			// if (window.location.host == 'www.desora.ro') alarmeData =  "www.desora.ro/alarme-data";
-			// else $.getJSON("alarmeData.json", function(json) {
-			// 	alarmeData = json; 
-			// });
+			if (window.location.host == 'www.desora.ro') {
+				alarmeData = "alarme-data";
+			} else {
+				alarmeData = "alarmeData.json";
+			}
 
 			// luam lista json de la server cu alarme
-			$.getJSON('alarme-data', function (data) {
-
-				if (window.location.host != 'www.desora.ro') 
-					data = $.getJSON("alarmeData.json");
+			$.getJSON(alarmeData, function (data) {
 
 				// var text = JSON.stringify(data);
 				console.log(JSON.stringify(data));
@@ -121,15 +119,17 @@ class App {
 			</div>	`;
 
 				msgSetareAlarma.find('#alarme').append(alarme);
-			
+
 				$('.adauga-linie').click(function () {
 					var tabel = $('#loc-tabel');
 					var randNou = tabel.find('tr.hide').clone(true).removeClass('hide table-line');
 					tabel.find('table').append(randNou);
 
-					$.post("alarme-data/insert", {operation: "insert"}, function (data, status) {
-							randNou[0].children[0].innerText = JSON.parse(data).insertId;
-						});
+					$.post("alarme-data/insert", {
+						operation: "insert"
+					}, function (data, status) {
+						randNou[0].children[0].innerText = JSON.parse(data).insertId;
+					});
 
 				});
 
@@ -179,9 +179,9 @@ class App {
 						.fail(function () { /* console.warn( "error update" ); */ })
 						.always(function () { /*console.log( "complete update"); */ });
 				});
+			});
 		});
-	});
-	
+
 		msgSetareAlarma.find('.inchide').click(function () {
 			msgSetareAlarma.trigger('hide')
 			alarme = '';
